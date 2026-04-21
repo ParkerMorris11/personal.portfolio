@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 
 const skillCategories = [
   {
-    title: "Frontend",
-    skills: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Framer Motion"],
+    title: "Programming",
+    skills: ["Python", "JavaScript", "TypeScript", "SQL", "Java", "C++", "HTML/CSS"],
   },
   {
-    title: "Backend",
-    skills: ["Node.js", "Express", "PostgreSQL", "REST APIs", "GraphQL"],
+    title: "Web & Frameworks",
+    skills: ["React", "Node.js", "Express", "SQLite"],
   },
   {
-    title: "Tools & DevOps",
-    skills: ["Git", "Docker", "AWS", "CI/CD", "Figma"],
+    title: "AI & Automation",
+    skills: ["LLM/API Integrations", "Claude API", "Claude Code", "Agents", "Workflow Automations"],
   },
 ];
 
@@ -34,7 +34,7 @@ const SkillsSection = () => {
           transition={{ ...fadeUp.transition, delay: 0.1 }}
           className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-16"
         >
-          Tech Stack
+          What I Work With
         </motion.h2>
 
         <div className="grid md:grid-cols-3 gap-8">

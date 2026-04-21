@@ -19,19 +19,18 @@ const AboutSection = () => {
           transition={{ ...fadeUp.transition, delay: 0.1 }}
           className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-8"
         >
-          Passionate about building
+          Building things that
           <br />
-          <span className="text-white/50">digital experiences</span>
+          <span className="text-white/50">actually work</span>
         </motion.h2>
         <motion.p
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.2 }}
           className="text-lg text-white/40 leading-relaxed max-w-2xl"
         >
-          I'm a full-stack developer with a love for clean architecture, intuitive interfaces, 
-          and performant applications. With experience across the modern web stack, I bring ideas 
-          to life through code — from concept to deployment. I thrive in collaborative environments 
-          and believe great software is built at the intersection of design and engineering.
+          I'm an Information Systems student at Brigham Young University with a focus on AI-driven tools,
+          full-stack applications, and workflow automation. I work with Python, LLM APIs, and React to build
+          practical software — not just proofs of concept, but things people actually use day to day.
         </motion.p>
 
         <motion.div
@@ -40,15 +39,31 @@ const AboutSection = () => {
           className="grid grid-cols-3 gap-8 mt-16"
         >
           {[
-            { number: "3+", label: "Years Experience" },
-            { number: "20+", label: "Projects Completed" },
-            { number: "10+", label: "Happy Clients" },
+            { number: "BYU", label: "Marriott School of Business" },
+            { number: "2028", label: "Expected Graduation" },
+            { number: "3", label: "Projects Shipped" },
           ].map((stat) => (
             <div key={stat.label} className="text-center md:text-left">
               <div className="text-3xl md:text-4xl font-bold text-white">{stat.number}</div>
               <div className="text-sm text-white/40 mt-1">{stat.label}</div>
             </div>
           ))}
+        </motion.div>
+
+        <motion.div
+          {...fadeUp}
+          transition={{ ...fadeUp.transition, delay: 0.4 }}
+          className="mt-16"
+        >
+          <p className="text-xs text-white/30 tracking-widest uppercase mb-4">GitHub Contributions</p>
+          <div className="rounded-2xl overflow-hidden border border-white/10">
+            <img
+              src="https://raw.githubusercontent.com/ParkerMorris11/ParkerMorris11/main/profile-3d-contrib/profile-night-view.svg"
+              alt="Parker Morris GitHub 3D contribution chart"
+              className="w-full mix-blend-mode-screen"
+              style={{ mixBlendMode: "screen" }}
+            />
+          </div>
         </motion.div>
       </div>
     </section>

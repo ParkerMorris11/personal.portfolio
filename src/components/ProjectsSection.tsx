@@ -2,24 +2,22 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A modern online store with real-time inventory, payments, and a custom CMS.",
-    tags: ["React", "Node.js", "Stripe"],
+    title: "Ledger — Personal Finance Tracker",
+    description:
+      "Full-stack expense tracker with auto-categorization, budget tracking, safe-to-spend calculation, and a natural quick-add input. Built for everyday use, not just demos.",
+    tags: ["React", "Express", "SQLite"],
   },
   {
-    title: "Analytics Dashboard",
-    description: "Data visualization dashboard with live metrics, custom charts, and reporting.",
-    tags: ["TypeScript", "D3.js", "PostgreSQL"],
+    title: "Daily AI News Digest Agent",
+    description:
+      "Automated weekday agent that pulls stories from multiple AI news sources, then filters and ranks them into a concise overview. Standardized source ingestion for consistent output.",
+    tags: ["Python", "Automation"],
   },
   {
-    title: "Social Media App",
-    description: "Full-stack social platform with real-time chat, feeds, and media sharing.",
-    tags: ["Next.js", "Socket.io", "AWS"],
-  },
-  {
-    title: "AI Content Tool",
-    description: "AI-powered writing assistant with templates, tone control, and export options.",
-    tags: ["Python", "OpenAI", "React"],
+    title: "Local Sleep Briefing Agent",
+    description:
+      "Generates daily recommendations connecting sleep quality to planned workload and habits. Uses the Claude API to surface personalized, actionable insights each morning.",
+    tags: ["Python", "Claude API"],
   },
 ];
 
@@ -42,7 +40,7 @@ const ProjectsSection = () => {
           transition={{ ...fadeUp.transition, delay: 0.1 }}
           className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-16"
         >
-          Selected Work
+          Things I've Built
         </motion.h2>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -55,11 +53,8 @@ const ProjectsSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
               className="group relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300"
             >
-              <div className="h-40 rounded-xl bg-white/5 mb-6 flex items-center justify-center text-white/10 text-sm">
-                Preview
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-              <p className="text-sm text-white/40 leading-relaxed mb-4">{project.description}</p>
+              <h3 className="text-xl font-semibold text-white mb-3">{project.title}</h3>
+              <p className="text-sm text-white/40 leading-relaxed mb-6">{project.description}</p>
               <div className="flex gap-2 flex-wrap">
                 {project.tags.map((tag) => (
                   <span
