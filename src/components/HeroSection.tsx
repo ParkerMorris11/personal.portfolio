@@ -12,7 +12,7 @@ const logos = Array.from({ length: 6 }, (_, i) => `Logo ${i + 1}`);
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 });
 
 const HeroSection = () => {
