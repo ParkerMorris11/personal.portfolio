@@ -1,14 +1,6 @@
 import { motion } from "framer-motion";
 import VideoPlayer from "./VideoPlayer";
 
-const badges = [
-  { label: "Integrated with", icon: "⚡" },
-  { label: "Integrated with", icon: "🔗" },
-  { label: "Integrated with", icon: "🛡️" },
-];
-
-const logos = Array.from({ length: 6 }, (_, i) => `Logo ${i + 1}`);
-
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -27,13 +19,12 @@ const HeroSection = () => {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-24">
         {/* Badges */}
         <motion.div {...fadeUp(0.2)} className="flex gap-3 mb-8">
-          {badges.map((badge, i) => (
+          {["React", "TypeScript", "Node.js"].map((tech) => (
             <span
-              key={i}
+              key={tech}
               className="flex items-center gap-2 px-4 py-2 text-xs text-white/70 rounded-full backdrop-blur-md bg-white/5 border border-white/10"
             >
-              <span>{badge.icon}</span>
-              {badge.label}
+              {tech}
             </span>
           ))}
         </motion.div>
@@ -43,9 +34,11 @@ const HeroSection = () => {
           {...fadeUp(0.4)}
           className="text-center text-5xl sm:text-6xl md:text-7xl lg:text-[80px] font-semibold tracking-tight text-white leading-[1.05] max-w-4xl"
         >
-          Where Innovation
+          Hi, I'm a
           <br />
-          Meets Execution
+          <span className="bg-gradient-to-r from-white via-white/80 to-white/50 bg-clip-text text-transparent">
+            Developer
+          </span>
         </motion.h1>
 
         {/* Subtext */}
@@ -53,34 +46,25 @@ const HeroSection = () => {
           {...fadeUp(0.6)}
           className="mt-6 text-center text-base md:text-lg text-white/50 max-w-xl leading-relaxed"
         >
-          Streamline your testing and deployment pipeline with
+          I craft performant web experiences with clean code
           <br />
-          intelligent automation that scales with your team.
+          and thoughtful design. Let's build something great.
         </motion.p>
 
         {/* Buttons */}
         <motion.div {...fadeUp(0.8)} className="flex gap-4 mt-10">
-          <button className="px-6 py-3 text-sm font-medium text-white rounded-full bg-black border border-white/30 hover:border-white/60 transition-colors">
-            Get Started for Free
-          </button>
-          <button className="px-6 py-3 text-sm font-medium text-white/80 rounded-full backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-            Let's Get Connected
-          </button>
-        </motion.div>
-
-        {/* Logo Marquee */}
-        <motion.div
-          {...fadeUp(1.0)}
-          className="mt-20 flex items-center gap-12 opacity-40"
-        >
-          {logos.map((logo, i) => (
-            <div
-              key={i}
-              className="flex items-center justify-center w-24 h-8 text-xs text-white/60 font-medium tracking-wide grayscale"
-            >
-              {logo}
-            </div>
-          ))}
+          <a
+            href="#projects"
+            className="px-6 py-3 text-sm font-medium text-white rounded-full bg-black border border-white/30 hover:border-white/60 transition-colors"
+          >
+            View My Work
+          </a>
+          <a
+            href="#contact"
+            className="px-6 py-3 text-sm font-medium text-white/80 rounded-full backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+          >
+            Get in Touch
+          </a>
         </motion.div>
       </div>
     </section>
