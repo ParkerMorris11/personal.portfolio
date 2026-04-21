@@ -11,7 +11,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen bg-black overflow-hidden">
       {/* Video Background */}
-      <div className="absolute bottom-[35vh] left-0 right-0 h-[80vh] z-0">
+      <div className="absolute top-0 left-0 right-0 h-[200vh] z-0">
         <VideoPlayer />
       </div>
 
