@@ -1,20 +1,31 @@
 import { motion } from "framer-motion";
 
+
 const projects = [
   {
+    title: "Bronz Bliss — Tanning Studio CRM",
+    status: "In Progress",
+    description:
+      "Vertical SaaS CRM built for spray tan and tanning studios. Covers the full operator workflow: client management, appointment booking, session tracking, service packages, and payments. 20+ pages including a dashboard, calendar, client profiles, booking flow, messages, and package management — a purpose-built alternative to generalist tools like Vagaro.",
+    tags: ["React", "TypeScript", "Node.js", "Express", "Drizzle ORM", "Tailwind CSS", "Vercel"],
+  },
+  {
     title: "Ledger — Personal Finance Tracker",
+    status: "Shipped",
     description:
       "Full-stack expense tracker with auto-categorization, budget tracking, safe-to-spend calculation, and a natural quick-add input. Built for everyday use, not just demos.",
     tags: ["React", "Express", "SQLite"],
   },
   {
     title: "Daily AI News Digest Agent",
+    status: "Shipped",
     description:
       "Automated weekday agent that pulls stories from multiple AI news sources, then filters and ranks them into a concise overview. Standardized source ingestion for consistent output.",
     tags: ["Python", "Automation"],
   },
   {
     title: "Local Sleep Briefing Agent",
+    status: "Shipped",
     description:
       "Generates daily recommendations connecting sleep quality to planned workload and habits. Uses the Claude API to surface personalized, actionable insights each morning.",
     tags: ["Python", "Claude API"],
@@ -53,7 +64,12 @@ const ProjectsSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
               className="group relative p-8 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm hover:border-white/20 hover:bg-white/[0.04] transition-all duration-300"
             >
-              <h3 className="text-xl font-semibold text-white mb-3">{project.title}</h3>
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                <span className="text-sm font-bold text-white shrink-0 ml-3">
+                  {project.status}
+                </span>
+              </div>
               <p className="text-sm text-white/40 leading-relaxed mb-6">{project.description}</p>
               <div className="flex gap-2 flex-wrap">
                 {project.tags.map((tag) => (
@@ -68,6 +84,22 @@ const ProjectsSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          {...fadeUp}
+          transition={{ ...fadeUp.transition, delay: 0.4 }}
+          className="mt-16"
+        >
+          <p className="text-xs text-white/30 tracking-widest uppercase mb-4">GitHub Contributions</p>
+          <div className="rounded-2xl overflow-hidden">
+            <img
+              src="https://raw.githubusercontent.com/ParkerMorris11/ParkerMorris11/main/profile-3d-contrib/profile-night-green.svg"
+              alt="Parker Morris GitHub 3D contribution chart"
+              className="w-full"
+              style={{ mixBlendMode: "screen" }}
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

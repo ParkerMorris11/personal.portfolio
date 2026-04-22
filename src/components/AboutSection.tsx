@@ -36,35 +36,55 @@ const AboutSection = () => {
         <motion.div
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.3 }}
-          className="grid grid-cols-3 gap-8 mt-16"
+          className="mt-10"
         >
-          {[
-            { number: "BYU", label: "Marriott School of Business" },
-            { number: "2028", label: "Expected Graduation" },
-            { number: "3", label: "Projects Shipped" },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center md:text-left">
-              <div className="text-3xl md:text-4xl font-bold text-white">{stat.number}</div>
-              <div className="text-sm text-white/40 mt-1">{stat.label}</div>
+          <p className="text-xs text-white/30 tracking-widest uppercase mb-4">Education</p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center justify-between gap-6">
+            <div>
+              <p className="text-white font-semibold text-lg">Brigham Young University</p>
+              <p className="text-white/50 text-sm mt-1">Marriott School of Business</p>
+              <p className="text-white/40 text-sm mt-1">B.S. Information Systems</p>
             </div>
-          ))}
+            <div className="text-right shrink-0">
+              <p className="text-white/30 text-xs tracking-widest uppercase">Expected</p>
+              <p className="text-white font-semibold text-2xl mt-1">2028</p>
+              <p className="text-white/30 text-xs mt-1">Provo, UT</p>
+            </div>
+          </div>
         </motion.div>
 
         <motion.div
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.4 }}
-          className="mt-16"
+          className="mt-4"
         >
-          <p className="text-xs text-white/30 tracking-widest uppercase mb-4">GitHub Contributions</p>
-          <div className="rounded-2xl overflow-hidden border border-white/10">
-            <img
-              src="https://raw.githubusercontent.com/ParkerMorris11/ParkerMorris11/main/profile-3d-contrib/profile-night-view.svg"
-              alt="Parker Morris GitHub 3D contribution chart"
-              className="w-full mix-blend-mode-screen"
-              style={{ mixBlendMode: "screen" }}
-            />
+          <p className="text-xs text-white/30 tracking-widest uppercase mb-4">Experience</p>
+          <div className="flex flex-col gap-3">
+            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center justify-between gap-6">
+              <div>
+                <p className="text-white font-semibold text-lg">IT Specialist</p>
+                <p className="text-white/50 text-sm mt-1">BYU J. Reuben Clark Law School</p>
+                <p className="text-white/40 text-sm mt-1">Provo, UT</p>
+              </div>
+              <div className="text-right shrink-0">
+                <p className="text-white/30 text-xs tracking-widest uppercase">Current</p>
+                <p className="text-white font-semibold text-sm mt-1">Aug 2025 – Present</p>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 flex items-center justify-between gap-6">
+              <div>
+                <p className="text-white font-semibold text-lg">Volunteer Representative</p>
+                <p className="text-white/50 text-sm mt-1">The Church of Jesus Christ of Latter-day Saints</p>
+                <p className="text-white/40 text-sm mt-1">Lubbock, TX</p>
+              </div>
+              <div className="text-right shrink-0">
+                <p className="text-white font-semibold text-sm mt-1">Jun 2023 – Jun 2025</p>
+              </div>
+            </div>
           </div>
         </motion.div>
+
+
       </div>
     </section>
   );

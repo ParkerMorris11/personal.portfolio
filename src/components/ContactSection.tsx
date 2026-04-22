@@ -56,6 +56,13 @@ const ContactSection = () => {
           >
             LinkedIn
           </a>
+          <a
+            href="/April 2026 - AI Shaped Resume.pdf"
+            download
+            className="px-8 py-4 text-sm font-medium text-white/80 rounded-full backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+          >
+            Resume
+          </a>
         </motion.div>
 
         <motion.p
