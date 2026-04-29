@@ -11,7 +11,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="relative py-32 px-4 bg-white dark:bg-black border-t border-black/5 dark:border-white/5">
       <div className="max-w-2xl mx-auto text-center">
-        <motion.span {...fadeUp} className="text-sm text-gray-900/40 dark:text-white/40 tracking-widest uppercase mb-4 block">
+        <motion.span {...fadeUp} className="text-sm text-gray-900/70 dark:text-white/40 tracking-widest uppercase mb-4 block">
           Contact
         </motion.span>
         <motion.h2
@@ -24,7 +24,7 @@ const ContactSection = () => {
         <motion.p
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.2 }}
-          className="text-lg text-gray-900/40 dark:text-white/40 mb-12"
+          className="text-lg text-gray-900/70 dark:text-white/40 mb-12"
         >
           Have a project in mind? I'd love to hear about it.
         </motion.p>
@@ -68,7 +68,7 @@ const ContactSection = () => {
         <motion.p
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.4 }}
-          className="mt-24 text-xs text-gray-900/20 dark:text-white/20"
+          className="mt-24 text-xs text-gray-900/75 dark:text-white/20"
         >
           © 2026 — Built with passion
         </motion.p>

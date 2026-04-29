@@ -27,7 +27,7 @@ const TechCarousel = () => {
               className="w-10 h-10 opacity-50 group-hover:opacity-100 transition-opacity duration-300"
               style={tech.name === "Express" ? { filter: "invert(1)" } : undefined}
             />
-            <span className="text-xs text-gray-900/30 dark:text-white/20 group-hover:text-gray-900/60 dark:group-hover:text-white/50 transition-colors duration-300">
+            <span className="text-xs text-gray-900/80 dark:text-white/20 group-hover:text-gray-900/80 dark:group-hover:text-white/50 transition-colors duration-300">
               {tech.name}
             </span>
           </div>

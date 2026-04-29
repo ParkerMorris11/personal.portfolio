@@ -47,7 +47,7 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="relative py-32 px-4 bg-white dark:bg-black">
       <div className="max-w-5xl mx-auto">
-        <motion.span {...fadeUp} className="text-sm text-gray-900/40 dark:text-white/40 tracking-widest uppercase mb-4 block">
+        <motion.span {...fadeUp} className="text-sm text-gray-900/70 dark:text-white/40 tracking-widest uppercase mb-4 block">
           Projects
         </motion.span>
         <motion.h2
@@ -74,14 +74,14 @@ const ProjectsSection = () => {
                   {project.status}
                 </span>
               </div>
-              <p className="text-xs text-gray-900/30 dark:text-white/30 tracking-widest uppercase mb-2">Why I built it</p>
-              <p className="text-sm text-gray-900/60 dark:text-white/60 leading-relaxed mb-4 italic">{project.why}</p>
-              <p className="text-sm text-gray-900/35 dark:text-white/35 leading-relaxed mb-6">{project.description}</p>
+              <p className="text-xs text-gray-900/80 dark:text-white/30 tracking-widest uppercase mb-2">Why I built it</p>
+              <p className="text-sm text-gray-900/80 dark:text-white/60 leading-relaxed mb-4 italic">{project.why}</p>
+              <p className="text-sm text-gray-900/65 dark:text-white/35 leading-relaxed mb-6">{project.description}</p>
               <div className="flex gap-2 flex-wrap">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-xs text-gray-900/50 dark:text-white/50 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5"
+                    className="px-3 py-1 text-xs text-gray-900/75 dark:text-white/50 rounded-full border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5"
                   >
                     {tag}
                   </span>
@@ -96,7 +96,7 @@ const ProjectsSection = () => {
           transition={{ ...fadeUp.transition, delay: 0.4 }}
           className="mt-16"
         >
-          <p className="text-xs text-gray-900/30 dark:text-white/30 tracking-widest uppercase mb-4">GitHub Contributions</p>
+          <p className="text-xs text-gray-900/80 dark:text-white/30 tracking-widest uppercase mb-4">GitHub Contributions</p>
           <div className="rounded-2xl overflow-hidden">
             <img
               src="https://raw.githubusercontent.com/ParkerMorris11/ParkerMorris11/main/profile-3d-contrib/profile-night-green.svg"
