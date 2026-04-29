@@ -9,7 +9,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-white dark:bg-black min-h-screen">
       <ScrollProgress />
       <Navbar />
       <HeroSection />

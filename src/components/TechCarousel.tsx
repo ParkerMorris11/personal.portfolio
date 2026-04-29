@@ -17,7 +17,7 @@ const TechCarousel = () => {
   const doubled = [...techs, ...techs];
 
   return (
-    <div className="relative py-12 bg-black overflow-hidden border-y border-white/5">
+    <div className="relative py-12 bg-white dark:bg-black overflow-hidden border-y border-black/5 dark:border-white/5">
       <div className="flex animate-marquee gap-12 w-max">
         {doubled.map((tech, i) => (
           <div key={i} className="flex flex-col items-center gap-3 shrink-0 group">
@@ -27,7 +27,7 @@ const TechCarousel = () => {
               className="w-10 h-10 opacity-50 group-hover:opacity-100 transition-opacity duration-300"
               style={tech.name === "Express" ? { filter: "invert(1)" } : undefined}
             />
-            <span className="text-xs text-white/20 group-hover:text-white/50 transition-colors duration-300">
+            <span className="text-xs text-gray-900/30 dark:text-white/20 group-hover:text-gray-900/60 dark:group-hover:text-white/50 transition-colors duration-300">
               {tech.name}
             </span>
           </div>

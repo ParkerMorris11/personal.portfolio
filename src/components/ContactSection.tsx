@@ -9,22 +9,22 @@ const fadeUp = {
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="relative py-32 px-4 bg-black border-t border-white/5">
+    <section id="contact" className="relative py-32 px-4 bg-white dark:bg-black border-t border-black/5 dark:border-white/5">
       <div className="max-w-2xl mx-auto text-center">
-        <motion.span {...fadeUp} className="text-sm text-white/40 tracking-widest uppercase mb-4 block">
+        <motion.span {...fadeUp} className="text-sm text-gray-900/40 dark:text-white/40 tracking-widest uppercase mb-4 block">
           Contact
         </motion.span>
         <motion.h2
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.1 }}
-          className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6"
+          className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 dark:text-white mb-6"
         >
           Let's work together
         </motion.h2>
         <motion.p
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.2 }}
-          className="text-lg text-white/40 mb-12"
+          className="text-lg text-gray-900/40 dark:text-white/40 mb-12"
         >
           Have a project in mind? I'd love to hear about it.
         </motion.p>
@@ -36,7 +36,7 @@ const ContactSection = () => {
         >
           <a
             href="mailto:parkerqmorris@gmail.com"
-            className="px-8 py-4 text-sm font-medium text-white/80 rounded-full backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+            className="px-8 py-4 text-sm font-medium text-gray-900/80 dark:text-white/80 rounded-full backdrop-blur-md bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
           >
             Email
           </a>
@@ -44,7 +44,7 @@ const ContactSection = () => {
             href="https://github.com/ParkerMorris11"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 text-sm font-medium text-white/80 rounded-full backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+            className="px-8 py-4 text-sm font-medium text-gray-900/80 dark:text-white/80 rounded-full backdrop-blur-md bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
           >
             GitHub
           </a>
@@ -52,14 +52,14 @@ const ContactSection = () => {
             href="https://www.linkedin.com/in/parker-morris11/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 text-sm font-medium text-white/80 rounded-full backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+            className="px-8 py-4 text-sm font-medium text-gray-900/80 dark:text-white/80 rounded-full backdrop-blur-md bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
           >
             LinkedIn
           </a>
           <a
             href="/April 2026 - AI Shaped Resume.pdf"
             download
-            className="px-8 py-4 text-sm font-medium text-white/80 rounded-full backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+            className="px-8 py-4 text-sm font-medium text-gray-900/80 dark:text-white/80 rounded-full backdrop-blur-md bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
           >
             Resume
           </a>
@@ -68,7 +68,7 @@ const ContactSection = () => {
         <motion.p
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.4 }}
-          className="mt-24 text-xs text-white/20"
+          className="mt-24 text-xs text-gray-900/20 dark:text-white/20"
         >
           © 2026 — Built with passion
         </motion.p>
