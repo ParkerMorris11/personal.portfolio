@@ -19,18 +19,19 @@ const AboutSection = () => {
           transition={{ ...fadeUp.transition, delay: 0.1 }}
           className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-8"
         >
-          Building things that
+          I build for the gap between
           <br />
-          <span className="text-white/50">actually work</span>
+          <span className="text-white/50">what exists and what should</span>
         </motion.h2>
         <motion.p
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.2 }}
           className="text-lg text-white/40 leading-relaxed max-w-2xl"
         >
-          I'm an Information Systems student at Brigham Young University with a focus on AI-driven tools,
-          full-stack applications, and workflow automation. I work with Python, LLM APIs, and React to build
-          practical software — not just proofs of concept, but things people actually use day to day.
+          Most software is built for the average use case. I'm interested in the specific ones —
+          the tanning studio that runs on spreadsheets, the professional who reads 12 newsletters to stay current.
+          I'm a BYU Information Systems student who works at the intersection of AI, product design, and real operations.
+          I care about maintainability, clean architecture, and shipping things that solve actual problems — not just things that demo well.
         </motion.p>
 
         <motion.div

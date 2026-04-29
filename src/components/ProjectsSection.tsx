@@ -5,29 +5,33 @@ const projects = [
   {
     title: "Bronz Bliss — Tanning Studio CRM",
     status: "In Progress",
+    why: "Tanning studios run on Square, spreadsheets, and manual texts — none of it built for how they actually work. I wanted to see what a purpose-built vertical SaaS looked like from the ground up.",
     description:
-      "Vertical SaaS CRM built for spray tan and tanning studios. Covers the full operator workflow: client management, appointment booking, session tracking, service packages, and payments. 20+ pages including a dashboard, calendar, client profiles, booking flow, messages, and package management — a purpose-built alternative to generalist tools like Vagaro.",
+      "Multi-tenant CRM covering the full operator workflow: client management, appointment booking, session history, service packages, and payments. 20+ pages built as a purpose-built alternative to generalist tools like Vagaro.",
     tags: ["React", "TypeScript", "Node.js", "Express", "Drizzle ORM", "Tailwind CSS", "Vercel"],
   },
   {
     title: "Ledger — Personal Finance Tracker",
     status: "Shipped",
+    why: "Every finance app I tried was either too complex or too simple. I wanted something fast to use daily — not a dashboard you open once a month.",
     description:
-      "Full-stack expense tracker with auto-categorization, budget tracking, safe-to-spend calculation, and a natural quick-add input. Built for everyday use, not just demos.",
+      "Full-stack expense tracker with auto-categorization, budget tracking, safe-to-spend calculation, and a natural quick-add input designed for real daily use.",
     tags: ["React", "Express", "SQLite"],
   },
   {
     title: "Daily AI News Digest Agent",
     status: "Shipped",
+    why: "I was reading 8+ sources every morning to stay current on AI. The overlap was massive and the signal was buried. I automated the process instead.",
     description:
-      "Automated weekday agent that pulls stories from multiple AI news sources, then filters and ranks them into a concise overview. Standardized source ingestion for consistent output.",
+      "Weekday agent that ingests multiple AI news sources, normalizes them into a shared schema, filters duplicates, and ranks by recency and relevance into a concise daily digest.",
     tags: ["Python", "Automation"],
   },
   {
     title: "Local Sleep Briefing Agent",
     status: "Shipped",
+    why: "I wanted to understand how sleep quality actually affects output — not generic advice, but a daily recommendation tied to what I had planned.",
     description:
-      "Generates daily recommendations connecting sleep quality to planned workload and habits. Uses the Claude API to surface personalized, actionable insights each morning.",
+      "Generates personalized morning recommendations connecting sleep quality to planned workload and habits using the Claude API for structured, actionable daily output.",
     tags: ["Python", "Claude API"],
   },
 ];
@@ -70,7 +74,9 @@ const ProjectsSection = () => {
                   {project.status}
                 </span>
               </div>
-              <p className="text-sm text-white/40 leading-relaxed mb-6">{project.description}</p>
+              <p className="text-xs text-white/30 tracking-widest uppercase mb-2">Why I built it</p>
+              <p className="text-sm text-white/60 leading-relaxed mb-4 italic">{project.why}</p>
+              <p className="text-sm text-white/35 leading-relaxed mb-6">{project.description}</p>
               <div className="flex gap-2 flex-wrap">
                 {project.tags.map((tag) => (
                   <span

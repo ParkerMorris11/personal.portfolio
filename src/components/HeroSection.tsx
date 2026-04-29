@@ -41,7 +41,7 @@ const HeroSection = () => {
       <div className="relative z-10 flex flex-col items-center justify-start px-4 pt-36">
         {/* Eyebrow */}
         <motion.p {...fadeUp(0.1)} className="text-xs text-white/40 tracking-widest uppercase mb-6">
-          Full-Stack Developer · Based in Provo, Utah
+          AI Systems Builder · Vertical SaaS · Workflow Automation
         </motion.p>
 
         {/* Headline */}
@@ -64,9 +64,9 @@ const HeroSection = () => {
           {...fadeUp(0.5)}
           className="mt-6 text-center text-base md:text-lg text-white/50 max-w-xl leading-relaxed"
         >
-          I build fast, thoughtful web apps — from clean UIs to solid backends.
+          I build AI-powered software for real operations — not demos.
           <br />
-          Focused on writing code that's easy to maintain and great to use.
+          Vertical SaaS, agentic tools, and systems people actually rely on.
         </motion.p>
       </div>
     </section>
