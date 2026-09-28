@@ -41,7 +41,7 @@ const HeroSection = () => {
       <div className="relative z-10 flex flex-col items-center justify-start px-4 pt-36">
         {/* Eyebrow */}
         <motion.p {...fadeUp(0.1)} className="text-xs text-white/40 tracking-widest uppercase mb-6">
-          AI Systems Builder · Vertical SaaS · Workflow Automation
+          Applied AI · Product Systems · Workflow Automation
         </motion.p>
 
         {/* Headline */}
@@ -64,9 +64,9 @@ const HeroSection = () => {
           {...fadeUp(0.5)}
           className="mt-6 text-center text-base md:text-lg text-white/50 max-w-xl leading-relaxed"
         >
-          I build AI-powered software for real operations — not demos.
+          I turn complex workflows into useful AI products.
           <br />
-          Vertical SaaS, agentic tools, and systems people actually rely on.
+          From customer discovery to deployment and the work that comes after.
         </motion.p>
       </div>
     </section>

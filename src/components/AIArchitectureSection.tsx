@@ -15,12 +15,12 @@ const digestSteps = [
   { label: "Output", detail: "Concise digest delivered — structured, readable, consistent" },
 ];
 
-const bronzSteps = [
-  { label: "Booking", detail: "Client selects service, date, and time through a studio-branded flow" },
-  { label: "Session", detail: "Session logged with skin tone history, service type, and notes" },
-  { label: "CRM Profile", detail: "Client record updated — full history, preferences, lapse tracking" },
-  { label: "AI Layer", detail: "Lapsed clients identified and outreach triggered automatically" },
-  { label: "Dashboard", detail: "Studio owner sees revenue, bookings, and re-engagement metrics" },
+const policySteps = [
+  { label: "Policy", detail: "Company policy supplied as the source material" },
+  { label: "Extraction", detail: "Grounded policy details structured for review" },
+  { label: "Learning", detail: "Assessments and content generated from the source" },
+  { label: "Pilot", detail: "Employee feedback incorporated in two-week cycles" },
+  { label: "Deployment", detail: "Customer workflow prepared for delivery" },
 ];
 
 const FlowDiagram = ({ steps }: { steps: typeof digestSteps }) => (
@@ -70,7 +70,7 @@ const AIArchitectureSection = () => {
           not just wiring an API. Here's how two of my projects are designed under the hood.
         </motion.p>
 
-        {/* Bronz Bliss */}
+        {/* BrainStorm policy learning workflow */}
         <motion.div
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.3 }}
@@ -79,36 +79,36 @@ const AIArchitectureSection = () => {
           <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
             <div>
               <p className="text-xs text-gray-900/80 dark:text-white/30 tracking-widest uppercase mb-2">Case Study</p>
-              <h3 className="text-2xl font-semibold text-white">Bronz Bliss — Tanning Studio CRM</h3>
-              <p className="text-gray-900/70 dark:text-white/40 text-sm mt-1">React · Node.js · Express · Drizzle ORM · Vercel</p>
+              <h3 className="text-2xl font-semibold text-white">AI Policy Learning Workflow — BrainStorm</h3>
+              <p className="text-gray-900/70 dark:text-white/40 text-sm mt-1">Claude API · Next.js · TypeScript · Source Grounding</p>
             </div>
-            <span className="text-sm font-bold text-white">In Progress</span>
+            <span className="text-sm font-bold text-white">Deployed</span>
           </div>
 
-          <FlowDiagram steps={bronzSteps} />
+          <FlowDiagram steps={policySteps} />
 
           <div className="border-t border-black/10 dark:border-white/10 pt-8 grid md:grid-cols-3 gap-8">
             <div>
               <p className="text-xs text-gray-900/80 dark:text-white/30 tracking-widest uppercase mb-3">The Problem</p>
               <p className="text-gray-900/75 dark:text-white/50 text-sm leading-relaxed">
-                Tanning studios run on a mix of Square, manual texts, and spreadsheets — none built for their workflow.
-                No client skin tone history, no lapse detection, no business intelligence specific to tanning patterns.
+                Turning a company AI policy into usable employee learning materials took about two hours of manual work.
+                The workflow needed to stay grounded in the source policy and be reviewable before deployment.
               </p>
             </div>
             <div>
               <p className="text-xs text-gray-900/80 dark:text-white/30 tracking-widest uppercase mb-3">The Design</p>
               <p className="text-gray-900/75 dark:text-white/50 text-sm leading-relaxed">
-                Multi-tenant architecture gives each studio fully isolated data under one codebase.
-                The CRM layer tracks session history per client so the AI re-engagement feature has a real signal to
-                work from — not just a timestamp, but actual lapse patterns relative to their tanning cadence.
+                A Claude-powered application extracts policy details, generates assessments and learning content,
+                and prepares assets for deployment. Structured outputs, source grounding, and semantic matching
+                support consistent results.
               </p>
             </div>
             <div>
-              <p className="text-xs text-gray-900/80 dark:text-white/30 tracking-widest uppercase mb-3">Strategic Layer</p>
+              <p className="text-xs text-gray-900/80 dark:text-white/30 tracking-widest uppercase mb-3">The Outcome</p>
               <p className="text-gray-900/75 dark:text-white/50 text-sm leading-relaxed">
-                Bronz Bliss also functions as a proof-of-capability demo for Clearpath AI sales conversations.
-                Design quality matters as much as functionality — it needs to show what a purpose-built vertical
-                SaaS looks like when done right.
+                Reduced policy mobilization time by 88%, from about two hours to 15 minutes.
+                The workflow was piloted with 80+ employees and deployed for the Town of Brookhaven,
+                with feedback incorporated before transition to Product and Engineering.
               </p>
             </div>
           </div>

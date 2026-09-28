@@ -19,14 +19,6 @@ const projects = [
     tags: ["TypeScript", "React", "Supabase", "PostgreSQL", "Twilio", "Resend"],
   },
   {
-    title: "Bronz Bliss — Tanning Studio CRM",
-    status: "In Progress",
-    why: "Tanning studios run on Square, spreadsheets, and manual texts — none of it built for how they actually work. I wanted to see what a purpose-built vertical SaaS looked like from the ground up.",
-    description:
-      "Multi-tenant CRM covering the full operator workflow: client management, appointment booking, session history, service packages, and payments. 20+ pages built as a purpose-built alternative to generalist tools like Vagaro.",
-    tags: ["React", "TypeScript", "Node.js", "Express", "Drizzle ORM", "Tailwind CSS", "Vercel"],
-  },
-  {
     title: "Ledger — Personal Finance Tracker",
     status: "Shipped",
     why: "Every finance app I tried was either too complex or too simple. I wanted something fast to use daily — not a dashboard you open once a month.",
