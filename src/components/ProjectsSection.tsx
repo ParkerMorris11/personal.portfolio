@@ -3,6 +3,22 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "AI Policy Learning Workflow — BrainStorm",
+    status: "Deployed",
+    why: "Turning an AI policy into useful employee learning materials was taking about two hours of manual work. I worked from stakeholder requirements through an employee pilot and customer deployment.",
+    description:
+      "Built a Claude-powered application for policy extraction, assessments, content generation, and deployment preparation. It reduced policy mobilization time by 88% (about two hours to 15 minutes), was piloted with 80+ employees, and supported a customer workflow for the Town of Brookhaven.",
+    tags: ["Claude API", "Next.js", "TypeScript", "Source Grounding", "Jira"],
+  },
+  {
+    title: "Customer Workflow Systems — Toasted Tanz",
+    status: "In Use",
+    why: "A small business needs software that fits its actual check-in and communication workflows. I work with the founder to turn those operational needs into usable systems.",
+    description:
+      "Designed and shipped a digital waiver with an auditable agreement record, plus SMS and email workflows with rate limits, failure alerts, and recovery paths.",
+    tags: ["TypeScript", "React", "Supabase", "PostgreSQL", "Twilio", "Resend"],
+  },
+  {
     title: "Bronz Bliss — Tanning Studio CRM",
     status: "In Progress",
     why: "Tanning studios run on Square, spreadsheets, and manual texts — none of it built for how they actually work. I wanted to see what a purpose-built vertical SaaS looked like from the ground up.",
@@ -21,10 +37,11 @@ const projects = [
   {
     title: "Daily AI News Digest Agent",
     status: "Shipped",
-    why: "I was reading 8+ sources every morning to stay current on AI. The overlap was massive and the signal was buried. I automated the process instead.",
+    why: "I wanted a more useful way to keep up with AI news without reading overlapping newsletters every morning.",
     description:
-      "Weekday agent that ingests multiple AI news sources, normalizes them into a shared schema, filters duplicates, and ranks by recency and relevance into a concise daily digest.",
-    tags: ["Python", "Automation"],
+      "Self-hosted agent that aggregates four AI newsletters, deduplicates and ranks stories by relevance, and delivers a personalized HTML briefing in about 30 seconds per run.",
+    tags: ["Python", "Claude", "Automation"],
+    url: "https://github.com/ParkerMorris11/ai-digest",
   },
   {
     title: "Local Sleep Briefing Agent",
@@ -87,6 +104,16 @@ const ProjectsSection = () => {
                   </span>
                 ))}
               </div>
+              {project.url && (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex mt-6 text-sm font-medium text-gray-900 dark:text-white underline underline-offset-4 hover:opacity-70 transition-opacity"
+                >
+                  View project on GitHub ↗
+                </a>
+              )}
             </motion.div>
           ))}
         </div>
