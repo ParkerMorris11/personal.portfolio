@@ -30,13 +30,13 @@ const FlowDiagram = ({ steps }: { steps: typeof digestSteps }) => (
         <div className="flex flex-col md:flex-row items-center flex-1 w-full">
           <div className="flex flex-col items-center flex-1 w-full">
             <div className="w-full rounded-xl border border-black/10 dark:border-white/10 bg-black/[0.03] dark:bg-white/[0.03] p-4 text-center hover:border-black/20 dark:hover:border-white/20 hover:bg-black/[0.06] dark:bg-white/[0.06] transition-all duration-300">
-              <p className="text-white font-semibold text-sm mb-2">{step.label}</p>
+              <p className="text-gray-900 dark:text-white font-semibold text-sm mb-2">{step.label}</p>
               <p className="text-gray-900/65 dark:text-white/35 text-xs leading-relaxed">{step.detail}</p>
             </div>
           </div>
           {i < steps.length - 1 && (
             <div className="flex items-center justify-center mx-2 my-2 shrink-0">
-              <span className="text-white/20 text-lg font-light rotate-90 md:rotate-0">→</span>
+              <span className="text-gray-900/20 dark:text-white/20 text-lg font-light rotate-90 md:rotate-0">→</span>
             </div>
           )}
         </div>
@@ -47,24 +47,24 @@ const FlowDiagram = ({ steps }: { steps: typeof digestSteps }) => (
 
 const AIArchitectureSection = () => {
   return (
-    <section id="architecture" className="relative py-32 px-4 bg-white dark:bg-black">
+    <section id="architecture" className="editorial-section section-paper">
       <div className="max-w-5xl mx-auto">
-        <motion.span {...fadeUp} className="text-sm text-gray-900/70 dark:text-white/40 tracking-widest uppercase mb-4 block">
-          AI Architecture
+        <motion.span {...fadeUp} className="section-kicker mb-4 block">
+          03 <span>—</span> AI architecture
         </motion.span>
         <motion.h2
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.1 }}
-          className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-4"
+          className="font-editorial text-[clamp(2.35rem,5vw,4rem)] leading-[1.06] tracking-tight text-gray-900 dark:text-white mb-4"
         >
           Designing systems,
           <br />
-          <span className="text-gray-900/75 dark:text-white/50">not just writing code</span>
+          <span className="text-gray-900/65 dark:text-white/55">not just writing code</span>
         </motion.h2>
         <motion.p
           {...fadeUp}
           transition={{ ...fadeUp.transition, delay: 0.2 }}
-          className="text-lg text-gray-900/70 dark:text-white/40 leading-relaxed max-w-2xl mb-16"
+          className="text-base text-gray-900/70 dark:text-white/55 leading-relaxed max-w-2xl mb-16"
         >
           Building real tools means thinking through data flow, failure modes, and output consistency —
           not just wiring an API. Here's how two of my projects are designed under the hood.
@@ -79,10 +79,10 @@ const AIArchitectureSection = () => {
           <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
             <div>
               <p className="text-xs text-gray-900/80 dark:text-white/30 tracking-widest uppercase mb-2">Case Study</p>
-              <h3 className="text-2xl font-semibold text-white">AI Policy Learning Workflow — BrainStorm</h3>
+              <h3 className="font-editorial text-2xl text-gray-900 dark:text-white">AI Policy Learning Workflow — BrainStorm</h3>
               <p className="text-gray-900/70 dark:text-white/40 text-sm mt-1">Claude API · Next.js · TypeScript · Source Grounding</p>
             </div>
-            <span className="text-sm font-bold text-white">Deployed</span>
+            <span className="text-sm font-semibold text-gray-900 dark:text-white">Deployed</span>
           </div>
 
           <FlowDiagram steps={policySteps} />
@@ -123,10 +123,10 @@ const AIArchitectureSection = () => {
           <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
             <div>
               <p className="text-xs text-gray-900/80 dark:text-white/30 tracking-widest uppercase mb-2">Case Study</p>
-              <h3 className="text-2xl font-semibold text-white">Daily AI News Digest Agent</h3>
+              <h3 className="font-editorial text-2xl text-gray-900 dark:text-white">Daily AI News Digest Agent</h3>
               <p className="text-gray-900/70 dark:text-white/40 text-sm mt-1">Python · Automation · Scheduled Agent</p>
             </div>
-            <span className="text-sm font-bold text-white">Shipped</span>
+            <span className="text-sm font-semibold text-gray-900 dark:text-white">Shipped</span>
           </div>
 
           <FlowDiagram steps={digestSteps} />

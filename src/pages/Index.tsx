@@ -9,14 +9,16 @@ import ScrollProgress from "@/components/ScrollProgress";
 
 const Index = () => {
   return (
-    <div className="bg-white dark:bg-black min-h-screen">
+    <div className="min-h-screen">
       <ScrollProgress />
       <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <TechCarousel />
-      <AIArchitectureSection />
-      <ProjectsSection />
+      <main id="main">
+        <HeroSection />
+        <AboutSection />
+        <TechCarousel />
+        <AIArchitectureSection />
+        <ProjectsSection />
+      </main>
       <ContactSection />
     </div>
   );
