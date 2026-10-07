@@ -13,7 +13,7 @@ const roles = [
     organization: "Toasted Tanz",
     location: "Provo, UT",
     dates: "Aug 2026 — Present",
-    detail: "Partner with the founder to turn customer and operational needs into software. Shipped a digital waiver and built SMS and email workflows with rate limits, alerts, and recovery paths.",
+    detail: "As AI Product Lead, partner with the founder to turn customer and operational needs into shipped product. Work includes a digital waiver with an auditable agreement record and SMS and email workflows with rate limits, failure alerts, and recovery paths.",
   },
   {
     title: "AI Adoption Intern",
