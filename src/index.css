@@ -102,21 +102,6 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: "DM Sans", sans-serif;
-    cursor: url("/cursor-gray.svg") 3 2, auto;
-  }
-
-  a,
-  button,
-  [role="button"],
-  input[type="button"],
-  input[type="submit"] {
-    cursor: url("/cursor-gray-pointer.svg") 10 2, pointer;
-  }
-
-  input,
-  textarea,
-  [contenteditable="true"] {
-    cursor: text;
   }
 }
 
@@ -139,6 +124,22 @@ All colors MUST be HSL.
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
+}
+
+.cursor-halo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid rgba(75, 85, 99, 0.35);
+  border-radius: 50%;
+  background: rgba(156, 163, 175, 0.38);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform;
+  transition: opacity 120ms ease;
 }
 
 body {
