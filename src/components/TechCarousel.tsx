@@ -17,7 +17,7 @@ const TechCarousel = () => {
   const doubled = [...techs, ...techs];
 
   return (
-    <div className="relative py-12 bg-white dark:bg-black overflow-hidden border-y border-black/5 dark:border-white/5">
+    <div className="relative section-paper overflow-hidden border-y py-10" style={{ borderColor: "var(--portfolio-line)" }}>
       <div className="flex animate-marquee gap-12 w-max">
         {doubled.map((tech, i) => (
           <div key={i} className="flex flex-col items-center gap-3 shrink-0 group">

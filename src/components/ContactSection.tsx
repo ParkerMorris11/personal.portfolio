@@ -1,73 +1,36 @@
 import { motion } from "framer-motion";
 
 const fadeUp = {
-  initial: { opacity: 0, y: 30 },
+  initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
 };
 
-const ContactSection = () => {
-  return (
-    <section id="contact" className="relative py-32 px-4 bg-white dark:bg-black border-t border-black/5 dark:border-white/5">
-      <div className="max-w-2xl mx-auto text-center">
-        <motion.span {...fadeUp} className="text-sm text-gray-900/70 dark:text-white/40 tracking-widest uppercase mb-4 block">
-          Contact
-        </motion.span>
-        <motion.h2
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.1 }}
-          className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 dark:text-white mb-6"
-        >
-          Let's work together
-        </motion.h2>
-        <motion.p
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.2 }}
-          className="text-lg text-gray-900/70 dark:text-white/40 mb-12"
-        >
-          Have a project in mind? I'd love to hear about it.
-        </motion.p>
+const ContactSection = () => (
+  <footer id="contact" className="contact-panel scroll-mt-20">
+    <div className="contact-inner">
+      <motion.p {...fadeUp} className="section-kicker">05 <span>—</span> Contact</motion.p>
+      <motion.h2 {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.08 }} className="font-editorial">
+        Let’s work on something useful.
+      </motion.h2>
+      <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.16 }} className="contact-lede">
+        Have a project in mind? I’d love to hear about it.
+      </motion.p>
 
-        <motion.div
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <a
-            href="mailto:parkerqmorris@gmail.com"
-            className="px-8 py-4 text-sm font-medium text-gray-900/80 dark:text-white/80 rounded-full backdrop-blur-md bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
-          >
-            Email
-          </a>
-          <a
-            href="https://github.com/ParkerMorris11"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 text-sm font-medium text-gray-900/80 dark:text-white/80 rounded-full backdrop-blur-md bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/parker-morris11/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 text-sm font-medium text-gray-900/80 dark:text-white/80 rounded-full backdrop-blur-md bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
-          >
-            LinkedIn
-          </a>
-        </motion.div>
+      <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.24 }} className="contact-actions">
+        <a href="mailto:parkerqmorris@gmail.com" className="contact-primary">Email Parker <span aria-hidden="true">↗</span></a>
+        <a href="https://github.com/ParkerMorris11" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="https://www.linkedin.com/in/parker-morris11/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+      </motion.div>
 
-        <motion.p
-          {...fadeUp}
-          transition={{ ...fadeUp.transition, delay: 0.4 }}
-          className="mt-24 text-xs text-gray-900/75 dark:text-white/20"
-        >
-          © 2026 — Built with passion
-        </motion.p>
+      <div className="contact-bottom">
+        <span>© 2026 Parker Morris · Provo, UT</span>
+        <a href="#top">Back to top ↑</a>
+        <span>Built with care</span>
       </div>
-    </section>
-  );
-};
+    </div>
+  </footer>
+);
 
 export default ContactSection;
