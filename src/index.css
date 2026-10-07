@@ -102,6 +102,21 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: "DM Sans", sans-serif;
+    cursor: url("/cursor-gray.svg") 3 2, auto;
+  }
+
+  a,
+  button,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"] {
+    cursor: url("/cursor-gray-pointer.svg") 10 2, pointer;
+  }
+
+  input,
+  textarea,
+  [contenteditable="true"] {
+    cursor: text;
   }
 }
 
@@ -589,7 +604,7 @@ body {
 }
 
 .contact-panel {
-  background: #17365b;
+  background: #151719;
   color: #f5f3ed;
   padding: clamp(4.5rem, 10vw, 8rem) 1.5rem 1.5rem;
 }
@@ -647,7 +662,7 @@ body {
 .contact-actions .contact-primary {
   border-color: #f5f3ed;
   background: #f5f3ed;
-  color: #17365b;
+  color: #151719;
   font-weight: 600;
 }
 
