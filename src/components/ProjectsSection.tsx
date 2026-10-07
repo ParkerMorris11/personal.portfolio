@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    title: "Customer Workflow Systems — Toasted Tanz",
+    status: "AI Product Lead · In use",
+    why: "The business needed check-in and customer communication that fit its actual workflows. I work with the founder to shape practical product changes around those needs.",
+    description: "Led product work from customer and operational needs through delivery. Shipped a digital waiver with an auditable agreement record, plus SMS and email workflows with rate limits, failure alerts, and recovery paths.",
+    tags: ["TypeScript", "React", "Supabase", "PostgreSQL", "Twilio", "Resend"],
+  },
+  {
     title: "AI Policy Learning Workflow — BrainStorm",
     status: "Deployed",
     why: "Turning an AI policy into useful employee learning materials was taking about two hours of manual work. I worked from stakeholder requirements through an employee pilot and customer deployment.",
     description: "Built a Claude-powered application for policy extraction, assessments, content generation, and deployment preparation. It reduced policy mobilization time by 88% (about two hours to 15 minutes), was piloted with 80+ employees, and supported a customer workflow for the Town of Brookhaven.",
     tags: ["Claude API", "Next.js", "TypeScript", "Source grounding", "Jira"],
-  },
-  {
-    title: "Customer Workflow Systems — Toasted Tanz",
-    status: "In use",
-    why: "A small business needs software that fits its actual check-in and communication workflows. I work with the founder to turn those operational needs into usable systems.",
-    description: "Designed and shipped a digital waiver with an auditable agreement record, plus SMS and email workflows with rate limits, failure alerts, and recovery paths.",
-    tags: ["TypeScript", "React", "Supabase", "PostgreSQL", "Twilio", "Resend"],
   },
   {
     title: "Ledger — Personal Finance Tracker",
@@ -54,7 +54,7 @@ const ProjectsSection = () => (
         <div>
           <motion.h2 {...fadeUp} className="section-title font-editorial">Built, shipped, and put to work.</motion.h2>
           <motion.p {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} className="section-lede">
-            A few examples of turning real needs into software people can use.
+            Product work across customer operations, employee learning, and practical automation.
           </motion.p>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -29,7 +28,6 @@ const Navbar = () => (
       </div>
 
       <div className="flex shrink-0 items-center gap-3">
-        <ThemeToggle />
         <a href="#contact" className="nav-contact">Let’s talk</a>
       </div>
     </nav>
