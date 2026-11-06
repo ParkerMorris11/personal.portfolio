@@ -1,29 +1,27 @@
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import AboutSection from "@/components/AboutSection";
-import TechCarousel from "@/components/TechCarousel";
-import ProjectsSection from "@/components/ProjectsSection";
-import AIArchitectureSection from "@/components/AIArchitectureSection";
-import ContactSection from "@/components/ContactSection";
-import ScrollProgress from "@/components/ScrollProgress";
-import CursorHalo from "@/components/CursorHalo";
+import SkipLink from "@/components/site/SkipLink";
+import SiteHeader from "@/components/site/SiteHeader";
+import Masthead from "@/components/site/Masthead";
+import SectionIndex from "@/components/site/SectionIndex";
+import WorkSection from "@/components/site/WorkSection";
+import AboutSection from "@/components/site/AboutSection";
+import SiteFooter from "@/components/site/SiteFooter";
 
-const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <CursorHalo />
-      <ScrollProgress />
-      <Navbar />
-      <main id="main">
-        <HeroSection />
-        <AboutSection />
-        <TechCarousel />
-        <AIArchitectureSection />
-        <ProjectsSection />
-      </main>
-      <ContactSection />
-    </div>
-  );
-};
+const Index = () => (
+  <div className="site">
+    <SkipLink />
+    <SiteHeader />
+    <main id="main">
+      <Masthead />
+      <div className="site-body">
+        <SectionIndex />
+        <div className="site-main">
+          <WorkSection />
+          <AboutSection />
+        </div>
+      </div>
+    </main>
+    <SiteFooter />
+  </div>
+);
 
 export default Index;
