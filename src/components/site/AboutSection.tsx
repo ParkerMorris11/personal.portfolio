@@ -38,7 +38,7 @@ const AboutSection = () => (
             {profile.college} · {profile.degree} · expected {profile.expected}
           </span>
         </p>
-        <h3>Tools I actually used on this work</h3>
+        <h3>Tools</h3>
         <ul className="tool-list">
           {[
             "TypeScript",
