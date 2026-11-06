@@ -67,6 +67,18 @@ describe("portfolio home", () => {
     expect(screen.getByRole("link", { name: "AI news digest agent" })).toHaveAttribute("href", links.aiDigest);
   });
 
+  it("includes architecture maps for interview walkthroughs", () => {
+    renderHome();
+
+    expect(document.getElementById("brainstorm-architecture")).not.toBeNull();
+    expect(document.getElementById("toasted-architecture")).not.toBeNull();
+    expect(document.getElementById("digest-architecture")).not.toBeNull();
+    expect(screen.getByText("Source grounding")).toBeInTheDocument();
+    expect(screen.getByText("Waiver audit record")).toBeInTheDocument();
+    expect(screen.getByText("Gmail SMTP")).toBeInTheDocument();
+    expect(screen.getAllByText(/Constraint/).length).toBeGreaterThanOrEqual(2);
+  });
+
   it("keeps navigation, skip link, and heading hierarchy usable without animation", () => {
     renderHome();
 

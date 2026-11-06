@@ -1,5 +1,13 @@
-import { brainstormFlow, links, toastedFlow } from "@/content/site";
-import FlowDrawing from "./FlowDrawing";
+import {
+  brainstormArchitecture,
+  brainstormFlow,
+  digestArchitecture,
+  digestFlow,
+  links,
+  toastedArchitecture,
+  toastedFlow,
+} from "@/content/site";
+import ArchitecturePanel from "./ArchitecturePanel";
 
 const WorkSection = () => (
   <section id="work" className="work-section" aria-labelledby="work-heading">
@@ -7,7 +15,8 @@ const WorkSection = () => (
       <h2 id="work-heading">Selected work</h2>
       <p>
         Two recent roles: an employee AI learning workflow at BrainStorm, and
-        customer operations software at Toasted Tanz.
+        customer operations software at Toasted Tanz. Each one has an architecture
+        map for walking through the system in an interview.
       </p>
     </div>
 
@@ -19,14 +28,16 @@ const WorkSection = () => (
         </p>
       </header>
 
-      <div className="exhibit-grid">
-        <div className="exhibit-copy">
+      <div className="exhibit-copy exhibit-copy-wide">
+        <div>
           <h4>Problem</h4>
           <p>
             Turning a company AI policy into usable employee learning materials took
             about two hours of manual work. The result still had to stay grounded in
             the source policy and be reviewable before anyone deployed it.
           </p>
+        </div>
+        <div>
           <h4>What I did</h4>
           <p>
             As an intern I owned a Claude-powered application from requirements
@@ -34,6 +45,8 @@ const WorkSection = () => (
             stakeholders along the way. After the intern cycle, the workflow was
             handed to Product and Engineering.
           </p>
+        </div>
+        <div>
           <h4>How it works</h4>
           <p>
             The app parses an acceptable-use policy, extracts sections, generates
@@ -41,6 +54,8 @@ const WorkSection = () => (
             for the BSI platform. People can edit employee-facing content and
             assessments before anything is deployed.
           </p>
+        </div>
+        <div>
           <h4>Outcome</h4>
           <p>
             On this intern project, policy mobilization time went from about two
@@ -53,8 +68,16 @@ const WorkSection = () => (
             </a>
           </p>
         </div>
-        <FlowDrawing title="Diagram · policy to BSI export" steps={brainstormFlow} />
       </div>
+
+      <ArchitecturePanel
+        id={brainstormArchitecture.id}
+        title={brainstormArchitecture.title}
+        summary={brainstormArchitecture.summary}
+        steps={brainstormFlow}
+        layers={brainstormArchitecture.layers}
+        constraint={brainstormArchitecture.constraint}
+      />
     </article>
 
     <article id="toasted" className="exhibit" aria-labelledby="toasted-title">
@@ -65,8 +88,8 @@ const WorkSection = () => (
         </p>
       </header>
 
-      <div className="exhibit-grid">
-        <div className="exhibit-copy">
+      <div className="exhibit-copy exhibit-copy-wide">
+        <div>
           <h4>Problem</h4>
           <p>
             Toasted Tanz is software for a spray-tan business’s customer operations.
@@ -74,11 +97,15 @@ const WorkSection = () => (
             actually runs — including a reliable waiver and messages that do not
             fail silently.
           </p>
+        </div>
+        <div>
           <h4>What I did</h4>
           <p>
             I partner with the founder on product: taking customer and operational
             needs through to delivery.
           </p>
+        </div>
+        <div>
           <h4>How it works</h4>
           <p>
             What’s shipped today is a digital waiver with an auditable agreement
@@ -87,8 +114,16 @@ const WorkSection = () => (
             Twilio, and Resend.
           </p>
         </div>
-        <FlowDrawing title="Diagram · customer path" steps={toastedFlow} />
       </div>
+
+      <ArchitecturePanel
+        id={toastedArchitecture.id}
+        title={toastedArchitecture.title}
+        summary={toastedArchitecture.summary}
+        steps={toastedFlow}
+        layers={toastedArchitecture.layers}
+        constraint={toastedArchitecture.constraint}
+      />
     </article>
 
     <article id="elsewhere" className="supporting" aria-labelledby="elsewhere-title">
@@ -100,6 +135,14 @@ const WorkSection = () => (
         — a self-hosted Python tool that reads four AI newsletters, uses Claude
         to drop duplicates and rank stories, and emails one briefing.
       </p>
+      <ArchitecturePanel
+        id={digestArchitecture.id}
+        title={digestArchitecture.title}
+        summary={digestArchitecture.summary}
+        steps={digestFlow}
+        layers={digestArchitecture.layers}
+        constraint={digestArchitecture.constraint}
+      />
     </article>
   </section>
 );
