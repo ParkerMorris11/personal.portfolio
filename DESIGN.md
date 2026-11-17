@@ -1,75 +1,79 @@
 ---
 name: Parker Morris Portfolio
-description: Textmode recruiter site for Parker Morris
+description: Light premium portfolio with a full-viewport ASCII form
 colors:
-  paper: "#12150f"
-  ink: "#efe9d6"
-  quiet: "#9eaa7c"
-  rule: "#3c4430"
-  accent: "#d7e36a"
-  hero: "#090b07"
+  paper: "#f5f3ef"
+  ink: "#161513"
+  quiet: "#5c574e"
+  surface: "#fffcf8"
+  accent: "#3f6fbf"
+  gold: "#c49a5c"
+  ascii-dark: "#11130f"
 typography:
-  body:
-    fontFamily: "JetBrains Mono, ui-monospace, monospace"
-    fontSize: "0.95rem"
-    fontWeight: 400
-    lineHeight: 1.65
-    letterSpacing: "normal"
   display:
+    fontFamily: "Bricolage Grotesque, Source Sans 3, sans-serif"
+    fontSize: "clamp(3.4rem, 9vw, 7.2rem)"
+    fontWeight: 500
+    lineHeight: 0.92
+    letterSpacing: "-0.045em"
+  body:
+    fontFamily: "Source Sans 3, Segoe UI, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: 1.6
+    letterSpacing: "normal"
+  mono:
     fontFamily: "JetBrains Mono, ui-monospace, monospace"
-    fontSize: "clamp(2.4rem, 7vw, 5.4rem)"
-    fontWeight: 700
-    lineHeight: 0.95
-    letterSpacing: "-0.04em"
+    fontSize: "0.78rem"
+    fontWeight: 400
+    lineHeight: 1.22
+    letterSpacing: "normal"
 rounded:
-  none: "0px"
+  card: "1.4rem"
+  pill: "999px"
 spacing:
   sm: "8px"
   md: "16px"
-  lg: "24px"
+  lg: "32px"
 components:
   button-primary:
-    backgroundColor: "{colors.accent}"
-    textColor: "{colors.paper}"
-    rounded: "{rounded.none}"
-    padding: "0.55rem 0.85rem"
-  button-primary-hover:
     backgroundColor: "{colors.ink}"
     textColor: "{colors.paper}"
+    rounded: "{rounded.pill}"
+    padding: "0.85rem 1.25rem"
 ---
 
 ## Overview
 
-A terminal-document portfolio: monospace type, box-drawing architecture, and a living character field behind the identity. Recruiters still scroll a normal page. Phosphor accent is the only saturated color.
+A recruiter site whose first impression is a dense, two-tone ASCII object on warm paper, with a large sans headline sitting on top. The rest of the page is a generous, modern layout. Monospace is reserved for architecture maps and keys.
 
 ## Colors
 
-Olive-black paper (`#12150f`), cream ink (`#efe9d6`), olive quiet text (`#9eaa7c`), hairline rules (`#3c4430`), phosphor accent (`#d7e36a`). Hero ground is slightly darker (`#090b07`) so the ASCII field can sit dim behind copy.
+Paper `#f5f3ef`, ink `#161513`, quiet brown-gray `#5c574e`, white cards `#fffcf8`. ASCII ink interpolates steel blue to sand gold. Diagrams sit on `#11130f`.
 
 ## Typography
 
-JetBrains Mono for every register, ligatures off. Display is heavy and tight; body stays 70ch. Architecture diagrams are smaller (`0.72rem`) so box-drawing stays aligned.
+Bricolage Grotesque for name and section titles (weight 500, tight tracking). Source Sans 3 for reading. JetBrains Mono for selectable diagrams.
 
 ## Layout
 
-Sticky status-bar header. Hero is full-bleed. Body is a two-column grid (jump list + main) collapsing to one column under 900px. Architecture diagrams swap from horizontal arrows to a stacked vertical pipe on small screens.
+Full-viewport hero. Identity left, facts right. Body is a two-column grid collapsing under 900px. Project stories are padded cards.
 
 ## Elevation & Depth
 
-No shadows. Depth is contrast: dim field, then a solid identity slab, then the document. Optional scanline overlay is a toggle, not the default.
+Soft layered shadows on cards. ASCII supplies the only spectacle. No glass slabs over the hero copy.
 
 ## Shapes
 
-Square corners. One-pixel rules. ASCII boxes for system maps. No pills, glass, or serif slabs.
+Large card radii, pill primary button, square-ish diagram inset with a 1rem radius.
 
 ## Components
 
-Primary action is an accent fill rectangle (`Read the work`). Secondary links are accent underline. Command palette and `/term` reuse the same border and type. Architecture lives in selectable `<pre>` text.
+Primary action is a black pill. Secondary is an underline. Architecture is a dark inset with box-drawing text.
 
 ## Do's and Don'ts
 
-- Do keep every claim on the live site; diagrams are generated from `src/content/site.ts`.
-- Do keep the character field low-contrast so the name stays readable.
-- Don't use a fake shell as the only navigation.
-- Don't reintroduce DM Serif, the Mux wave, typewriter names, or ledger chrome.
-- Don't invent metrics, projects, or a resume PDF.
+- Do keep the ASCII dense enough to read as an image.
+- Do keep claims identical to the live site.
+- Don't set the whole page in monospace.
+- Don't copy Synara's map or assets.

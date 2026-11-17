@@ -13,14 +13,14 @@ Audience: recruiters and hiring managers. Job: understand Parker and decide whet
 
 ## Direction contract
 
-THESIS: Recruiter-scannable record of Parker’s work, typeset as a terminal document with a living character field behind the name — not a fake shell maze and not the old serif/wave editorial.
+THESIS: Recruiter-scannable record of Parker’s work on a premium light page whose first memory is a huge dithered ASCII object behind the name — not a cramped terminal costume.
 
-OWN-WORLD: Olive-black paper, cream ink, one phosphor accent, JetBrains Mono, box-drawing rules, selectable ASCII architecture, optional scanlines.
+OWN-WORLD: Warm paper, near-black ink, Bricolage Grotesque display, Source Sans body, JetBrains Mono only for maps/keys, blue-to-gold ASCII form, soft cards.
 
 STORY: Visitor knows Parker is a BYU IS student building workflow software, can recount BrainStorm versus Toasted, and can email him in under a minute.
 
-FIRST VIEWPORT: Full-bleed low-contrast ASCII character field. Identity slab and now/school/place block sit on top, readable. Primary action: Read the work.
+FIRST VIEWPORT: Full-viewport ASCII sphere-and-ring, dense and colored. Huge name, statement, primary pill, and now/school/place without boxes.
 
-FORM: Textmode operations document (user-pinned redesign, then Synara-style field). Code-led. Seed key: pinned-ascii-2026-11.
+FORM: Synara-scale ASCII on a modern sans layout (user-pinned redo). Code-led. Seed key: pinned-ascii-2026-11b.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance

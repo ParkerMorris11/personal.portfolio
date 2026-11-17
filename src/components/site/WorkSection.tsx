@@ -12,9 +12,6 @@ import ArchitecturePanel from "./ArchitecturePanel";
 const WorkSection = () => (
   <section id="work" className="work-section" aria-labelledby="work-heading">
     <div className="section-head">
-      <p className="panel-rule" aria-hidden="true">
-        ── selected work ──
-      </p>
       <h2 id="work-heading">Selected work</h2>
       <p>
         Two recent roles: an employee AI learning workflow at BrainStorm, and

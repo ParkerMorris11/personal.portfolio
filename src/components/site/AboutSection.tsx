@@ -3,9 +3,6 @@ import { profile, roles } from "@/content/site";
 const AboutSection = () => (
   <section id="about" className="about-section" aria-labelledby="about-heading">
     <div className="section-head">
-      <p className="panel-rule" aria-hidden="true">
-        ── about ──
-      </p>
       <h2 id="about-heading">About</h2>
       <p>
         {profile.year.charAt(0).toUpperCase() + profile.year.slice(1)} in Information

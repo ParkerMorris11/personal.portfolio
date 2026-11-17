@@ -21,11 +21,9 @@ const SiteHeader = ({ scanlines, onToggleScanlines }: SiteHeaderProps) => (
       </nav>
       <div className="header-tools">
         <button type="button" className="ghost-btn" onClick={onToggleScanlines} aria-pressed={scanlines}>
-          {scanlines ? "scan:on" : "scan:off"}
+          {scanlines ? "Scan on" : "Scan"}
         </button>
-        <span className="kbd-hint" aria-hidden="true">
-          ctrl+k
-        </span>
+        <span className="kbd-hint">Ctrl+K</span>
       </div>
     </div>
   </header>
