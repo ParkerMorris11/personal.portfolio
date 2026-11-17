@@ -36,7 +36,7 @@ Single-page Vite + React + TypeScript + Tailwind site. Live domain parkermorris.
 - Name: Parker Morris.
 - Voice: straightforward, specific, student-honest.
 - Approved hero sense: “I'm Parker, a BYU Information Systems student building software and AI tools for real business workflows.”
-- Visual world: premium light paper with a full-viewport dithered ASCII form (blue-to-gold) behind a large sans headline. Bricolage Grotesque + Source Sans 3, JetBrains Mono only for diagrams and chrome. Architecture as selectable box-and-arrow diagrams on a dark inset.
+- Visual world: premium light paper with a full-viewport marble portrait dithered into ASCII (blue-to-gold) behind a large sans headline. Bricolage Grotesque + Source Sans 3, JetBrains Mono only for keys and step numbers. Architecture as a light numbered pipeline with chip layers.
 - Anti-reference: typewriter name, “operating ledger,” numbered 01–05 sections, “not just X” slogans, skills marquee, cursor halo, empty filler, duplicated Architecture/Experience/Projects narratives, fake shell as the only navigation.
 
 ## Evidence on Hand

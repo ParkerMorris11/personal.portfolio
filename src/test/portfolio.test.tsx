@@ -77,8 +77,8 @@ describe("portfolio home", () => {
     expect(screen.getByText("Waiver audit record")).toBeInTheDocument();
     expect(screen.getByText("Gmail SMTP")).toBeInTheDocument();
     expect(screen.getAllByText(/Constraint/).length).toBeGreaterThanOrEqual(2);
-    expect(container.textContent).toMatch(/┌/);
-    expect(container.textContent).toMatch(/-->|v/);
+    expect(container.querySelectorAll(".arch-flow").length).toBe(3);
+    expect(container.querySelectorAll(".arch-layers").length).toBe(3);
   });
 
   it("keeps navigation, skip link, and heading hierarchy usable without animation", () => {

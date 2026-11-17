@@ -8,7 +8,6 @@ colors:
   surface: "#fffcf8"
   accent: "#3f6fbf"
   gold: "#c49a5c"
-  ascii-dark: "#11130f"
 typography:
   display:
     fontFamily: "Bricolage Grotesque, Source Sans 3, sans-serif"
@@ -45,15 +44,15 @@ components:
 
 ## Overview
 
-A recruiter site whose first impression is a dense, two-tone ASCII object on warm paper, with a large sans headline sitting on top. The rest of the page is a generous, modern layout. Monospace is reserved for architecture maps and keys.
+A recruiter site whose first impression is a dense, two-tone ASCII portrait dithered from an original marble bust, with a large sans headline sitting on top. The rest of the page is a generous, modern layout. Monospace is reserved for keys and step numbers.
 
 ## Colors
 
-Paper `#f5f3ef`, ink `#161513`, quiet brown-gray `#5c574e`, white cards `#fffcf8`. ASCII ink interpolates steel blue to sand gold. Diagrams sit on `#11130f`.
+Paper `#f5f3ef`, ink `#161513`, quiet brown-gray `#5c574e`, white cards `#fffcf8`. ASCII ink interpolates steel blue to sand gold over the source photograph. Architecture sits on paper-white cards.
 
 ## Typography
 
-Bricolage Grotesque for name and section titles (weight 500, tight tracking). Source Sans 3 for reading. JetBrains Mono for selectable diagrams.
+Bricolage Grotesque for name and section titles (weight 500, tight tracking). Source Sans 3 for reading. JetBrains Mono for keys and numbered steps.
 
 ## Layout
 
@@ -65,11 +64,11 @@ Soft layered shadows on cards. ASCII supplies the only spectacle. No glass slabs
 
 ## Shapes
 
-Large card radii, pill primary button, square-ish diagram inset with a 1rem radius.
+Large card radii, pill primary button, light pipeline cards with numbered steps and chip layers.
 
 ## Components
 
-Primary action is a black pill. Secondary is an underline. Architecture is a dark inset with box-drawing text.
+Primary action is a black pill. Secondary is an underline. Architecture is a light numbered pipeline, not a black ASCII box.
 
 ## Do's and Don'ts
 
