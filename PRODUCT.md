@@ -36,8 +36,8 @@ Single-page Vite + React + TypeScript + Tailwind site. Live domain parkermorris.
 - Name: Parker Morris.
 - Voice: straightforward, specific, student-honest.
 - Approved hero sense: “I'm Parker, a BYU Information Systems student building software and AI tools for real business workflows.”
-- Keep the live site’s black Mux wave hero and dark editorial theme (near-black paper, cream ink, DM Serif/Sans).
-- Anti-reference: typewriter name, “operating ledger,” numbered 01–05 sections, “not just X” slogans, skills marquee, cursor halo, empty filler, duplicated Architecture/Experience/Projects narratives.
+- Visual world: ASCII / textmode / terminal-inspired. JetBrains Mono, olive-black paper, cream ink, one phosphor accent. Full-bleed character-field hero (original; not a copy of another site’s assets). Architecture as selectable box-and-arrow diagrams.
+- Anti-reference: typewriter name, “operating ledger,” numbered 01–05 sections, “not just X” slogans, skills marquee, cursor halo, empty filler, duplicated Architecture/Experience/Projects narratives, fake shell as the only navigation.
 
 ## Evidence on Hand
 

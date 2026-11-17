@@ -1,6 +1,11 @@
 import { nav, profile } from "@/content/site";
 
-const SiteHeader = () => (
+type SiteHeaderProps = {
+  scanlines: boolean;
+  onToggleScanlines: () => void;
+};
+
+const SiteHeader = ({ scanlines, onToggleScanlines }: SiteHeaderProps) => (
   <header className="site-header">
     <div className="site-header-inner">
       <a href="#top" className="brand">
@@ -12,7 +17,16 @@ const SiteHeader = () => (
             {item.label}
           </a>
         ))}
+        <a href="/term">Term</a>
       </nav>
+      <div className="header-tools">
+        <button type="button" className="ghost-btn" onClick={onToggleScanlines} aria-pressed={scanlines}>
+          {scanlines ? "scan:on" : "scan:off"}
+        </button>
+        <span className="kbd-hint" aria-hidden="true">
+          ctrl+k
+        </span>
+      </div>
     </div>
   </header>
 );

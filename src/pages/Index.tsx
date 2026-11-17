@@ -1,5 +1,4 @@
-import SkipLink from "@/components/site/SkipLink";
-import SiteHeader from "@/components/site/SiteHeader";
+import SiteShell from "@/components/site/SiteShell";
 import Masthead from "@/components/site/Masthead";
 import SectionIndex from "@/components/site/SectionIndex";
 import WorkSection from "@/components/site/WorkSection";
@@ -7,9 +6,7 @@ import AboutSection from "@/components/site/AboutSection";
 import SiteFooter from "@/components/site/SiteFooter";
 
 const Index = () => (
-  <div className="site">
-    <SkipLink />
-    <SiteHeader />
+  <SiteShell>
     <main id="main">
       <Masthead />
       <div className="site-body">
@@ -21,7 +18,7 @@ const Index = () => (
       </div>
     </main>
     <SiteFooter />
-  </div>
+  </SiteShell>
 );
 
 export default Index;

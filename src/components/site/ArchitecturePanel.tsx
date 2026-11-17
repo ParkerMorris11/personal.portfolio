@@ -1,3 +1,5 @@
+import { horizontalFlow, layerMap, stackedLayers, verticalFlow } from "@/lib/ascii-diagram";
+
 type Step = { label: string; detail: string };
 type Layer = { name: string; items: readonly string[] };
 
@@ -17,43 +19,60 @@ const ArchitecturePanel = ({
   steps,
   layers,
   constraint,
-}: ArchitecturePanelProps) => (
-  <figure id={id} className="arch-panel">
-    <figcaption>
-      <strong>{title}</strong>
-      <span>{summary}</span>
-    </figcaption>
+}: ArchitecturePanelProps) => {
+  const wideFlow = horizontalFlow(steps);
+  const tallFlow = verticalFlow(steps);
+  const wideLayers = layerMap(layers);
+  const tallLayers = stackedLayers(layers);
 
-    <ol className="arch-pipe" aria-label={`${title} pipeline`}>
-      {steps.map((step, index) => (
-        <li key={step.label}>
-          <span className="flow-index" aria-hidden="true">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <strong>{step.label}</strong>
-          <span>{step.detail}</span>
-        </li>
-      ))}
-    </ol>
+  return (
+    <figure id={id} className="arch-panel">
+      <figcaption>
+        <strong>{title}</strong>
+        <span>{summary}</span>
+      </figcaption>
 
-    <div className="arch-layers">
-      {layers.map((layer) => (
-        <div key={layer.name}>
-          <p>{layer.name}</p>
-          <ul>
-            {layer.items.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
+      <div className="ascii-block">
+        <p className="ascii-label">pipeline</p>
+        <pre className="ascii-art ascii-wide" aria-hidden="true">
+          {wideFlow}
+        </pre>
+        <pre className="ascii-art ascii-narrow" aria-hidden="true">
+          {tallFlow}
+        </pre>
+        <ol className="sr-only" aria-label={`${title} pipeline`}>
+          {steps.map((step) => (
+            <li key={step.label}>
+              {step.label}: {step.detail}
+            </li>
+          ))}
+        </ol>
+      </div>
 
-    <p className="arch-constraint">
-      <strong>Constraint. </strong>
-      {constraint}
-    </p>
-  </figure>
-);
+      <div className="ascii-block">
+        <p className="ascii-label">layers</p>
+        <pre className="ascii-art ascii-wide" aria-hidden="true">
+          {wideLayers}
+        </pre>
+        <pre className="ascii-art ascii-narrow" aria-hidden="true">
+          {tallLayers}
+        </pre>
+      </div>
+
+      <ul className="sr-only">
+        {layers.flatMap((layer) =>
+          layer.items.map((item) => (
+            <li key={`${layer.name}-${item}`}>{item}</li>
+          )),
+        )}
+      </ul>
+
+      <p className="arch-constraint">
+        <strong>Constraint. </strong>
+        {constraint}
+      </p>
+    </figure>
+  );
+};
 
 export default ArchitecturePanel;

@@ -10,6 +10,9 @@ const NotFound = () => {
 
   return (
     <main className="not-found">
+      <p className="panel-rule" aria-hidden="true">
+        ── 404 ──
+      </p>
       <h1>Page not found</h1>
       <p>That URL is not part of this site.</p>
       <a href="/">Return home</a>

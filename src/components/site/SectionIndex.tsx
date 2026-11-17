@@ -36,11 +36,14 @@ const SectionIndex = () => {
 
   return (
     <nav className="section-index" aria-label="On this page">
+      <p className="panel-rule" aria-hidden="true">
+        ── jump ──
+      </p>
       <ol>
         {items.map((item) => (
           <li key={item.href}>
             <a href={item.href} aria-current={current === item.href ? "true" : undefined}>
-              {item.label}
+              {current === item.href ? ">" : " "} {item.label}
             </a>
           </li>
         ))}

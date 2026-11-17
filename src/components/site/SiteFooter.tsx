@@ -3,6 +3,9 @@ import { links, profile } from "@/content/site";
 const SiteFooter = () => (
   <footer id="contact" className="site-footer">
     <div className="footer-inner">
+      <p className="panel-rule" aria-hidden="true">
+        ── contact ──
+      </p>
       <h2>Contact</h2>
       <p>
         Recruiting, internships, or a project with a real workflow — email is the

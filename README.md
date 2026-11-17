@@ -8,10 +8,12 @@ Live site: [parkermorris.org](https://parkermorris.org)
 
 ## What’s on the page
 
-- Identity and current role
+- Identity and current role on a textmode page with an ASCII character-field hero
 - Two case studies: BrainStorm policy learning workflow, Toasted Tanz customer workflows
+- ASCII architecture diagrams for interview walkthroughs
 - Public code for the AUP toolkit and the AI news digest agent
 - About, experience, and contact
+- Optional `/term` command surface and Ctrl+K jump list
 
 ## Run locally
 

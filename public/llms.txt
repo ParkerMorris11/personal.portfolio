@@ -1,0 +1,56 @@
+# Parker Morris
+
+I'm Parker, a BYU Information Systems student building software and AI tools for real business workflows.
+
+- Now: AI Product Lead, Toasted Tanz (Provo, UT, Aug 2026 — Present)
+- School: B.S. Information Systems, Brigham Young University, Marriott School of Business, expected 2028
+- Place: Provo, UT
+- Contact: parkerqmorris@gmail.com
+- GitHub: https://github.com/ParkerMorris11
+- LinkedIn: https://www.linkedin.com/in/parker-morris11/
+- Site: https://parkermorris.org/
+
+## Selected work
+
+### Policy learning workflow — BrainStorm Inc. (AI Adoption Intern, May–Aug 2026, American Fork, UT)
+Turning a company AI policy into usable employee learning materials took about two hours of manual work. The result still had to stay grounded in the source policy and be reviewable before anyone deployed it.
+
+As an intern I owned a Claude-powered application from requirements through an employee pilot and a customer deployment, working with stakeholders along the way. After the intern cycle, the workflow was handed to Product and Engineering.
+
+The app parses an acceptable-use policy, extracts sections, generates assessments and an employee PDF, then exports a Flow Builder workbook for the BSI platform. People can edit employee-facing content and assessments before anything is deployed.
+
+On this intern project, policy mobilization time went from about two hours to about 15 minutes (~88%). It was piloted with 80+ employees and used in a customer workflow for the Town of Brookhaven.
+
+AUP toolkit: https://github.com/ParkerMorris11/aup-mobilization-flow
+
+Flow: Policy → Extract → Learn → Review → Export
+Stack: Next.js, TypeScript, Claude API, source grounding, section check, assessment edits, employee PDF, Flow Builder workbook, BSI platform
+Constraint: Stay grounded in the source policy. Employee-facing content is edited by a person before anything is deployed.
+
+### Customer workflow systems — Toasted Tanz (AI Product Lead, Aug 2026–present, Provo, UT)
+Toasted Tanz is software for a spray-tan business’s customer operations. Check-in and customer communication needed to match how the shop actually runs — including a reliable waiver and messages that do not fail silently.
+
+I partner with the founder on product: taking customer and operational needs through to delivery.
+
+What’s shipped today is a digital waiver with an auditable agreement record, plus SMS and email workflows with rate limits, failure alerts, and recovery paths. Built with TypeScript, React, Supabase, PostgreSQL, Twilio, and Resend.
+
+Flow: Visit → Waiver → Message → Alert
+Stack: React, TypeScript, Supabase, PostgreSQL, waiver audit record, Twilio SMS, Resend email, rate limits, failure alerts, recovery paths
+Constraint: Messages cannot fail silently. Rate limits, alerts, and recovery are part of what is shipped today.
+
+### AI news digest agent
+https://github.com/ParkerMorris11/ai-digest
+
+A self-hosted Python tool that reads four AI newsletters, uses Claude to drop duplicates and rank stories, and emails one briefing.
+
+Flow: Fetch → Normalize → Filter → Rank → Send
+Stack: Python, macOS launchd, Claude API, structured JSON, Gmail SMTP, HTML + plain text
+Constraint: Stories are normalized first so ranking does not care which newsletter a story came from.
+
+## Experience
+- AI Product Lead, Toasted Tanz, Provo, UT, Aug 2026 — Present
+- AI Adoption Intern, BrainStorm Inc., American Fork, UT, May 2026 — Aug 2026
+- IT Specialist, BYU J. Reuben Clark Law School, Provo, UT, Aug 2025 — Present
+
+## Tools
+TypeScript, React, Next.js, Claude API, Python, Supabase, PostgreSQL, Twilio, Resend
