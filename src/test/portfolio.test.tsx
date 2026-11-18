@@ -6,15 +6,20 @@ import { links, profile } from "@/content/site";
 const renderHome = () => render(<Index />);
 
 describe("portfolio home", () => {
-  it("states who Parker is without a typewriter or ledger, on the black wave hero", () => {
+  it("states who Parker is without a typewriter or ledger", () => {
     const { container } = renderHome();
 
     expect(screen.getByRole("heading", { level: 1, name: profile.name })).toBeInTheDocument();
     expect(screen.getByText(profile.statement)).toBeInTheDocument();
     expect(container.textContent).not.toMatch(/Operating ledger/i);
     expect(container.textContent).not.toMatch(/I turn complex workflows into/i);
-    expect(container.querySelector("video")).not.toBeNull();
-    expect(container.querySelector(".hero-wave")).not.toBeNull();
+    expect(container.querySelector(".ascii-field")).not.toBeNull();
+    expect(container.querySelector(".ascii-field")?.getAttribute("aria-label")).toMatch(/Parthenon/);
+    expect(container.querySelector("video")).toBeNull();
+    expect(screen.getByRole("link", { name: "Parthenon, east side" })).toHaveAttribute(
+      "href",
+      "https://commons.wikimedia.org/wiki/File:Parthenon_east_side_Acropolis_Athens,_Greece.jpg",
+    );
   });
 
   it("leads with BrainStorm and Toasted case studies and keeps the intern stats in BrainStorm", () => {
@@ -68,7 +73,7 @@ describe("portfolio home", () => {
   });
 
   it("includes architecture maps for interview walkthroughs", () => {
-    renderHome();
+    const { container } = renderHome();
 
     expect(document.getElementById("brainstorm-architecture")).not.toBeNull();
     expect(document.getElementById("toasted-architecture")).not.toBeNull();
@@ -77,6 +82,8 @@ describe("portfolio home", () => {
     expect(screen.getByText("Waiver audit record")).toBeInTheDocument();
     expect(screen.getByText("Gmail SMTP")).toBeInTheDocument();
     expect(screen.getAllByText(/Constraint/).length).toBeGreaterThanOrEqual(2);
+    expect(container.querySelectorAll(".arch-flow").length).toBe(3);
+    expect(container.querySelectorAll(".arch-layers").length).toBe(3);
   });
 
   it("keeps navigation, skip link, and heading hierarchy usable without animation", () => {

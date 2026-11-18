@@ -15,6 +15,8 @@ Object.defineProperty(window, "IntersectionObserver", {
   value: IntersectionObserverStub,
 });
 
+HTMLCanvasElement.prototype.getContext = () => null;
+
 HTMLMediaElement.prototype.play = async () => undefined;
 HTMLMediaElement.prototype.pause = () => undefined;
 HTMLMediaElement.prototype.load = () => undefined;

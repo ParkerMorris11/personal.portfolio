@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import SiteShell from "@/components/site/SiteShell";
 
 const NotFound = () => {
   const location = useLocation();
@@ -9,11 +10,13 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <main className="not-found">
-      <h1>Page not found</h1>
-      <p>That URL is not part of this site.</p>
-      <a href="/">Return home</a>
-    </main>
+    <SiteShell>
+      <main className="not-found">
+        <h1>Page not found</h1>
+        <p>That URL is not part of this site.</p>
+        <a href="/">Return home</a>
+      </main>
+    </SiteShell>
   );
 };
 

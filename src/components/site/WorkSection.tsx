@@ -20,7 +20,8 @@ const WorkSection = () => (
       </p>
     </div>
 
-    <article id="brainstorm" className="exhibit" aria-labelledby="brainstorm-title">
+    <div className="work-grid">
+      <article id="brainstorm" className="exhibit" aria-labelledby="brainstorm-title">
       <header className="exhibit-header">
         <h3 id="brainstorm-title">Policy learning workflow</h3>
         <p className="exhibit-meta">
@@ -144,6 +145,7 @@ const WorkSection = () => (
         constraint={digestArchitecture.constraint}
       />
     </article>
+    </div>
   </section>
 );
 

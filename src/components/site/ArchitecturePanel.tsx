@@ -24,12 +24,9 @@ const ArchitecturePanel = ({
       <span>{summary}</span>
     </figcaption>
 
-    <ol className="arch-pipe" aria-label={`${title} pipeline`}>
-      {steps.map((step, index) => (
+    <ol className="arch-flow" aria-label={`${title} pipeline`}>
+      {steps.map((step) => (
         <li key={step.label}>
-          <span className="flow-index" aria-hidden="true">
-            {String(index + 1).padStart(2, "0")}
-          </span>
           <strong>{step.label}</strong>
           <span>{step.detail}</span>
         </li>

@@ -1,0 +1,16 @@
+{
+  "name": "Parker Morris Portfolio",
+  "colors": {
+    "paper": "#12150f",
+    "ink": "#efe9d6",
+    "quiet": "#9eaa7c",
+    "rule": "#3c4430",
+    "accent": "#d7e36a",
+    "hero": "#090b07"
+  },
+  "typography": {
+    "family": "JetBrains Mono",
+    "mono": true
+  },
+  "world": "ascii-textmode"
+}

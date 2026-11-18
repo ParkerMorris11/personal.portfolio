@@ -29,6 +29,15 @@ const SiteFooter = () => (
         </span>
         <a href="#top">Back to top</a>
       </p>
+      <p className="footer-credit">
+        Hero photo:{" "}
+        <a href="https://commons.wikimedia.org/wiki/File:Parthenon_east_side_Acropolis_Athens,_Greece.jpg">
+          Parthenon, east side
+        </a>{" "}
+        by Jebulon,{" "}
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>
+        . Adapted as ASCII.
+      </p>
     </div>
   </footer>
 );
