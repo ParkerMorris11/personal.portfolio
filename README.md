@@ -26,6 +26,10 @@ npm run dev
 
 Open the local address Vite prints.
 
+## Hero photograph
+
+The ASCII hero dithers [Mount Timpanogos from Provo](https://commons.wikimedia.org/wiki/File:Mount_Timpanogos_-_01-07-08.jpg) by [a4gpa](https://www.flickr.com/people/94833286@N00), licensed [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). The file in `public/hero-ascii-source.jpg` is a 1920px Wikimedia thumbnail of that original, then sampled and Bayer-dithered in the canvas.
+
 ```bash
 npm test
 npm run lint

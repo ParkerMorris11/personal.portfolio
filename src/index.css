@@ -254,8 +254,8 @@ main {
   z-index: 1;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(245, 243, 239, 0.22) 0%, rgba(245, 243, 239, 0.02) 42%, rgba(245, 243, 239, 0) 100%),
-    linear-gradient(180deg, rgba(245, 243, 239, 0.08) 0%, rgba(245, 243, 239, 0) 28%, rgba(245, 243, 239, 0.42) 100%);
+    linear-gradient(90deg, rgba(245, 243, 239, 0.2) 0%, rgba(245, 243, 239, 0.04) 30%, rgba(245, 243, 239, 0) 52%),
+    linear-gradient(180deg, rgba(245, 243, 239, 0.02) 0%, rgba(245, 243, 239, 0) 40%, rgba(245, 243, 239, 0.18) 100%);
 }
 
 .masthead {
@@ -685,6 +685,16 @@ main {
   color: var(--quiet);
 }
 
+.footer-credit {
+  margin: 0.7rem 0 0;
+  color: var(--quiet);
+  font-size: 0.78rem;
+}
+
+.footer-credit a {
+  color: var(--quiet);
+}
+
 .not-found,
 .term-page {
   max-width: 72rem;
@@ -807,7 +817,7 @@ main {
 
   .hero-shade {
     background:
-      linear-gradient(180deg, rgba(245, 243, 239, 0.06) 0%, rgba(245, 243, 239, 0.04) 40%, rgba(245, 243, 239, 0.48) 100%);
+      linear-gradient(180deg, rgba(245, 243, 239, 0.02) 0%, rgba(245, 243, 239, 0.04) 42%, rgba(245, 243, 239, 0.28) 100%);
   }
 
   .work-section,

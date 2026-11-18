@@ -29,6 +29,15 @@ const SiteFooter = () => (
         </span>
         <a href="#top">Back to top</a>
       </p>
+      <p className="footer-credit">
+        Hero photo:{" "}
+        <a href="https://commons.wikimedia.org/wiki/File:Mount_Timpanogos_-_01-07-08.jpg">
+          Mount Timpanogos from Provo
+        </a>{" "}
+        by a4gpa,{" "}
+        <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+        . Adapted as ASCII.
+      </p>
     </div>
   </footer>
 );

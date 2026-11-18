@@ -8,6 +8,9 @@ const BAYER = [
   [3, 11, 1, 9],
   [15, 7, 13, 5],
 ];
+// Mount Timpanogos from Provo by a4gpa. Source:
+// https://commons.wikimedia.org/wiki/File:Mount_Timpanogos_-_01-07-08.jpg
+// License: CC BY-SA 2.0 (https://creativecommons.org/licenses/by-sa/2.0/)
 const SOURCE = "/hero-ascii-source.jpg";
 
 type AsciiFieldProps = {
@@ -22,17 +25,17 @@ const coverUV = (
   imgW: number,
   imgH: number,
 ) => {
-  const zoom = canvasW < 640 ? 1.12 : 1.06;
+  const zoom = canvasW < 640 ? 1.68 : 1.38;
   const scale = Math.max(canvasW / imgW, canvasH / imgH) * zoom;
   const dw = imgW * scale;
   const dh = imgH * scale;
-  const ox = (canvasW - dw) * (canvasW < 640 ? 0.64 : 0.92);
-  const oy = (canvasH - dh) * (canvasW < 640 ? 0.22 : 0.32);
+  const ox = (canvasW - dw) * (canvasW < 640 ? 0.55 : 0.5);
+  const oy = (canvasH - dh) * (canvasW < 640 ? 0.7 : 0.8);
   return [(nx * canvasW - ox) / dw, (ny * canvasH - oy) / dh];
 };
 
 const samplePixel = (data: Uint8ClampedArray, width: number, height: number, u: number, v: number) => {
-  if (u < 0 || v < 0 || u > 1 || v > 1) return { luma: 0.9, r: 232, g: 226, b: 216 };
+  if (u < 0 || v < 0 || u > 1 || v > 1) return { luma: 0.55, r: 170, g: 168, b: 196 };
   const x = Math.min(width - 1, Math.max(0, u * (width - 1)));
   const y = Math.min(height - 1, Math.max(0, v * (height - 1)));
   const x0 = Math.floor(x);
@@ -57,6 +60,16 @@ const samplePixel = (data: Uint8ClampedArray, width: number, height: number, u: 
   return { luma, r, g, b: bl };
 };
 
+const textClear = (nx: number, ny: number, width: number) => {
+  if (width < 640) {
+    const band = Math.max(0, Math.min(1, (ny - 0.4) / 0.28));
+    return band * Math.max(0, 1 - nx * 0.35);
+  }
+  const xFade = Math.max(0, Math.min(1, (0.42 - nx) / 0.32));
+  const yFade = Math.max(0, Math.min(1, (ny - 0.52) / 0.22));
+  return xFade * yFade;
+};
+
 const paint = (
   ctx: CanvasRenderingContext2D,
   width: number,
@@ -67,7 +80,7 @@ const paint = (
   source: { data: Uint8ClampedArray; width: number; height: number } | null,
 ) => {
   ctx.clearRect(0, 0, width, height);
-  const fontSize = Math.floor(cell.h * 0.86);
+  const fontSize = Math.floor(cell.h * 0.88);
   ctx.font = `${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
   ctx.textBaseline = "top";
   ctx.textAlign = "left";
@@ -84,14 +97,14 @@ const paint = (
     for (let col = 0; col < cols; col += 1) {
       const nx = (col + 0.5) / cols;
       const ny = (row + 0.5) / rows;
-      const warpX = Math.sin(ny * 4.2 + time * 0.22) * 0.0035;
-      const warpY = Math.cos(nx * 3.4 - time * 0.16) * 0.0025;
+      const warpX = Math.sin(ny * 3.6 + time * 0.18) * 0.002;
+      const warpY = Math.cos(nx * 2.8 - time * 0.14) * 0.0016;
       const u = nx + warpX;
       const v = ny + warpY;
-      let luma = 0.9;
-      let sr = 210;
-      let sg = 200;
-      let sb = 188;
+      let luma = 0.55;
+      let sr = 170;
+      let sg = 168;
+      let sb = 196;
 
       if (source) {
         const uv = coverUV(u, v, width, height, source.width, source.height);
@@ -102,8 +115,9 @@ const paint = (
         sb = pixel.b;
       }
 
-      let ink = Math.min(1, Math.max(0, (0.9 - luma) / 0.52));
-      ink = Math.pow(ink, 0.72);
+      // Sky is a mid-luma wash; snow and rock both sit away from it, so the ridge holds.
+      let ink = Math.min(1, Math.abs(luma - 0.57) / 0.26);
+      ink = Math.pow(ink, 0.7);
 
       if (pn.active) {
         const pdx = (nx - pn.x) * aspect;
@@ -111,16 +125,21 @@ const paint = (
         ink = Math.min(1, ink + Math.exp(-(pdx * pdx + pdy * pdy) / 0.045) * 0.22);
       }
 
+      const clear = textClear(nx, ny, width);
+      ink *= 1 - clear * 0.42;
+
       const dither = (BAYER[row % 4][col % 4] + 0.5) / 16 - 0.5;
-      const value = Math.min(1, Math.max(0.04, ink + dither * 0.12));
+      const value = Math.min(1, Math.max(0, ink + dither * 0.1));
+      if (value < 0.09) continue;
       const index = Math.min(RAMP.length - 1, Math.floor(value * (RAMP.length - 1)));
       const glyph = RAMP[index];
 
       const t = nx;
-      const r = Math.round(sr * 0.28 + (68 + t * 150) * 0.72);
-      const g = Math.round(sg * 0.28 + (122 + t * 36) * 0.72);
-      const b = Math.round(sb * 0.28 + (214 - t * 128) * 0.72);
-      const alpha = 0.26 + value * 0.68;
+      const r = Math.round(sr * 0.22 + (62 + t * 158) * 0.78);
+      const g = Math.round(sg * 0.22 + (118 + t * 38) * 0.78);
+      const b = Math.round(sb * 0.22 + (216 - t * 132) * 0.78);
+      const alpha = (0.34 + value * 0.66) * (1 - clear * 0.62);
+      if (alpha < 0.05) continue;
       ctx.fillStyle = `rgba(${r},${g},${b},${alpha.toFixed(3)})`;
       ctx.fillText(glyph, col * cell.w, row * cell.h);
     }
@@ -146,7 +165,7 @@ const AsciiField = ({ className }: AsciiFieldProps) => {
     let frame = 0;
     let running = true;
     let last = 0;
-    const cell = { w: 7, h: 11 };
+    const cell = { w: 6, h: 10 };
     let source: { data: Uint8ClampedArray; width: number; height: number } | null = null;
 
     const image = new Image();
@@ -154,7 +173,7 @@ const AsciiField = ({ className }: AsciiFieldProps) => {
     image.src = SOURCE;
     image.onload = () => {
       const off = document.createElement("canvas");
-      const maxW = 640;
+      const maxW = 960;
       const scale = Math.min(1, maxW / Math.max(1, image.width));
       off.width = Math.max(1, Math.floor(image.width * scale));
       off.height = Math.max(1, Math.floor(image.height * scale));
@@ -180,8 +199,8 @@ const AsciiField = ({ className }: AsciiFieldProps) => {
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-      cell.w = width < 640 ? 7 : 6;
-      cell.h = width < 640 ? 11 : 10;
+      cell.w = width < 640 ? 6 : 5;
+      cell.h = width < 640 ? 10 : 8;
     };
 
     resize();
@@ -247,7 +266,7 @@ const AsciiField = ({ className }: AsciiFieldProps) => {
       ref={canvasRef}
       className={className}
       role="img"
-      aria-label="Marble portrait rendered as a field of colored ASCII characters."
+      aria-label="Wasatch ridgeline, Mount Timpanogos above Provo, rendered as a field of colored ASCII characters."
     />
   );
 };
