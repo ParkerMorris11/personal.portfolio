@@ -17,27 +17,11 @@ type AsciiFieldProps = {
   className?: string;
 };
 
-const coverUV = (
-  nx: number,
-  ny: number,
-  canvasW: number,
-  canvasH: number,
-  imgW: number,
-  imgH: number,
-) => {
-  const zoom = canvasW < 640 ? 1.68 : 1.38;
-  const scale = Math.max(canvasW / imgW, canvasH / imgH) * zoom;
-  const dw = imgW * scale;
-  const dh = imgH * scale;
-  const ox = (canvasW - dw) * (canvasW < 640 ? 0.55 : 0.5);
-  const oy = (canvasH - dh) * (canvasW < 640 ? 0.7 : 0.8);
-  return [(nx * canvasW - ox) / dw, (ny * canvasH - oy) / dh];
-};
-
 const samplePixel = (data: Uint8ClampedArray, width: number, height: number, u: number, v: number) => {
-  if (u < 0 || v < 0 || u > 1 || v > 1) return { luma: 0.55, r: 170, g: 168, b: 196 };
-  const x = Math.min(width - 1, Math.max(0, u * (width - 1)));
-  const y = Math.min(height - 1, Math.max(0, v * (height - 1)));
+  const uu = Math.min(1, Math.max(0, u));
+  const vv = Math.min(1, Math.max(0, v));
+  const x = uu * (width - 1);
+  const y = vv * (height - 1);
   const x0 = Math.floor(x);
   const y0 = Math.floor(y);
   const x1 = Math.min(width - 1, x0 + 1);
@@ -60,16 +44,6 @@ const samplePixel = (data: Uint8ClampedArray, width: number, height: number, u: 
   return { luma, r, g, b: bl };
 };
 
-const textClear = (nx: number, ny: number, width: number) => {
-  if (width < 640) {
-    const band = Math.max(0, Math.min(1, (ny - 0.4) / 0.28));
-    return band * Math.max(0, 1 - nx * 0.35);
-  }
-  const xFade = Math.max(0, Math.min(1, (0.42 - nx) / 0.32));
-  const yFade = Math.max(0, Math.min(1, (ny - 0.52) / 0.22));
-  return xFade * yFade;
-};
-
 const paint = (
   ctx: CanvasRenderingContext2D,
   width: number,
@@ -78,9 +52,10 @@ const paint = (
   pointer: { x: number; y: number; active: boolean },
   cell: { w: number; h: number },
   source: { data: Uint8ClampedArray; width: number; height: number } | null,
+  scrollT: number,
 ) => {
   ctx.clearRect(0, 0, width, height);
-  const fontSize = Math.floor(cell.h * 0.88);
+  const fontSize = Math.floor(cell.h * 0.9);
   ctx.font = `${fontSize}px "JetBrains Mono", ui-monospace, monospace`;
   ctx.textBaseline = "top";
   ctx.textAlign = "left";
@@ -92,54 +67,52 @@ const paint = (
     y: pointer.y / Math.max(1, height),
     active: pointer.active,
   };
+  const u0 = width < 640 ? 0.08 : 0.04;
+  const u1 = width < 640 ? 0.98 : 0.99;
+  const v0 = (width < 640 ? 0.32 : 0.28) + scrollT * 0.16;
+  const vSpan = width < 640 ? 0.52 : 0.58;
 
   for (let row = 0; row < rows; row += 1) {
     for (let col = 0; col < cols; col += 1) {
       const nx = (col + 0.5) / cols;
       const ny = (row + 0.5) / rows;
-      const warpX = Math.sin(ny * 3.6 + time * 0.18) * 0.002;
-      const warpY = Math.cos(nx * 2.8 - time * 0.14) * 0.0016;
-      const u = nx + warpX;
-      const v = ny + warpY;
-      let luma = 0.55;
-      let sr = 170;
-      let sg = 168;
-      let sb = 196;
+      const warpX = Math.sin(ny * 3.2 + time * 0.16) * 0.0014;
+      const warpY = Math.cos(nx * 2.4 - time * 0.12) * 0.001;
+      const u = u0 + nx * (u1 - u0) + warpX;
+      const v = v0 + ny * vSpan + warpY;
+      let luma = 0.58;
+      let sr = 90;
+      let sg = 100;
+      let sb = 140;
 
       if (source) {
-        const uv = coverUV(u, v, width, height, source.width, source.height);
-        const pixel = samplePixel(source.data, source.width, source.height, uv[0], uv[1]);
+        const pixel = samplePixel(source.data, source.width, source.height, u, v);
         luma = pixel.luma;
         sr = pixel.r;
         sg = pixel.g;
         sb = pixel.b;
       }
 
-      // Sky is a mid-luma wash; snow and rock both sit away from it, so the ridge holds.
-      let ink = Math.min(1, Math.abs(luma - 0.57) / 0.26);
-      ink = Math.pow(ink, 0.7);
+      const bluish = sb > sr + 10 && sb > sg;
+      const mountain = luma >= 0.58 || luma <= 0.47 || (v > 0.48 && !bluish);
+      let ink = mountain ? 0.9 + Math.min(0.1, Math.abs(luma - 0.68) * 0.3) : 0.18 + Math.max(0, 0.58 - luma) * 0.3;
 
       if (pn.active) {
         const pdx = (nx - pn.x) * aspect;
         const pdy = ny - pn.y;
-        ink = Math.min(1, ink + Math.exp(-(pdx * pdx + pdy * pdy) / 0.045) * 0.22);
+        ink = Math.min(1, ink + Math.exp(-(pdx * pdx + pdy * pdy) / 0.05) * 0.16);
       }
 
-      const clear = textClear(nx, ny, width);
-      ink *= 1 - clear * 0.42;
-
       const dither = (BAYER[row % 4][col % 4] + 0.5) / 16 - 0.5;
-      const value = Math.min(1, Math.max(0, ink + dither * 0.1));
-      if (value < 0.09) continue;
+      const value = Math.min(1, Math.max(0.08, ink + dither * 0.07));
       const index = Math.min(RAMP.length - 1, Math.floor(value * (RAMP.length - 1)));
       const glyph = RAMP[index];
 
       const t = nx;
-      const r = Math.round(sr * 0.22 + (62 + t * 158) * 0.78);
-      const g = Math.round(sg * 0.22 + (118 + t * 38) * 0.78);
-      const b = Math.round(sb * 0.22 + (216 - t * 132) * 0.78);
-      const alpha = (0.34 + value * 0.66) * (1 - clear * 0.62);
-      if (alpha < 0.05) continue;
+      const r = Math.round(sr * 0.16 + (32 + t * 124) * 0.84);
+      const g = Math.round(sg * 0.16 + (54 + t * 44) * 0.84);
+      const b = Math.round(sb * 0.16 + (108 - t * 52) * 0.84);
+      const alpha = mountain ? 0.86 + value * 0.14 : 0.28 + value * 0.22;
       ctx.fillStyle = `rgba(${r},${g},${b},${alpha.toFixed(3)})`;
       ctx.fillText(glyph, col * cell.w, row * cell.h);
     }
@@ -188,27 +161,28 @@ const AsciiField = ({ className }: AsciiFieldProps) => {
       draw(reduced ? 0 : last / 1000 || 1.2);
     };
 
+    const scrollT = () => {
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      return Math.min(1, Math.max(0, window.scrollY / max));
+    };
+
     const resize = () => {
-      const parent = canvas.parentElement;
-      if (!parent) return;
-      const ratio = Math.min(window.devicePixelRatio || 1, 2);
-      const width = parent.clientWidth;
-      const height = parent.clientHeight;
+      const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+      const width = window.innerWidth;
+      const height = window.innerHeight;
       canvas.width = Math.max(1, Math.floor(width * ratio));
       canvas.height = Math.max(1, Math.floor(height * ratio));
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-      cell.w = width < 640 ? 6 : 5;
-      cell.h = width < 640 ? 10 : 8;
+      cell.w = width < 640 ? 7 : 6;
+      cell.h = width < 640 ? 11 : 9;
     };
 
     resize();
 
     const draw = (time: number) => {
-      const parent = canvas.parentElement;
-      if (!parent) return;
-      paint(ctx, parent.clientWidth, parent.clientHeight, time, pointer, cell, source);
+      paint(ctx, window.innerWidth, window.innerHeight, time, pointer, cell, source, reduced ? 0 : scrollT());
     };
 
     if (reduced) {
@@ -230,7 +204,7 @@ const AsciiField = ({ className }: AsciiFieldProps) => {
         frame = window.requestAnimationFrame(tick);
         return;
       }
-      if (stamp - last >= 16) {
+      if (stamp - last >= 33) {
         draw(stamp / 1000);
         last = stamp;
       }
@@ -238,25 +212,23 @@ const AsciiField = ({ className }: AsciiFieldProps) => {
     };
     frame = window.requestAnimationFrame(tick);
 
-    const host = canvas.closest(".masthead-band") ?? canvas.parentElement;
     const onMove = (event: PointerEvent) => {
-      const bounds = canvas.getBoundingClientRect();
-      pointer.x = event.clientX - bounds.left;
-      pointer.y = event.clientY - bounds.top;
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
       pointer.active = true;
     };
     const onLeave = () => {
       pointer.active = false;
     };
-    host?.addEventListener("pointermove", onMove);
-    host?.addEventListener("pointerleave", onLeave);
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerleave", onLeave);
     window.addEventListener("resize", resize);
 
     return () => {
       running = false;
       window.cancelAnimationFrame(frame);
-      host?.removeEventListener("pointermove", onMove);
-      host?.removeEventListener("pointerleave", onLeave);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerleave", onLeave);
       window.removeEventListener("resize", resize);
     };
   }, [reduced]);

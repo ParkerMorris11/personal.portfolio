@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from "react";
 import SiteHeader from "./SiteHeader";
 import SkipLink from "./SkipLink";
+import AsciiField from "./AsciiField";
 
 const STORAGE_KEY = "pm-scanlines";
 
@@ -25,6 +26,9 @@ const SiteShell = ({ children }: SiteShellProps) => {
 
   return (
     <div className={scanlines ? "site scanlines" : "site"}>
+      <div className="site-ascii">
+        <AsciiField className="ascii-field" />
+      </div>
       <SkipLink />
       <SiteHeader scanlines={scanlines} onToggleScanlines={onToggleScanlines} />
       {children}

@@ -1,12 +1,7 @@
 import { profile } from "@/content/site";
-import AsciiField from "./AsciiField";
 
 const Masthead = () => (
   <section id="top" className="masthead-band" aria-labelledby="identity-name">
-    <div className="hero-field">
-      <AsciiField className="ascii-field" />
-    </div>
-    <div aria-hidden="true" className="hero-shade" />
     <div className="masthead">
       <div className="masthead-copy">
         <h1 id="identity-name">{profile.name}</h1>
