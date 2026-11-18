@@ -14,11 +14,11 @@ describe("portfolio home", () => {
     expect(container.textContent).not.toMatch(/Operating ledger/i);
     expect(container.textContent).not.toMatch(/I turn complex workflows into/i);
     expect(container.querySelector(".ascii-field")).not.toBeNull();
-    expect(container.querySelector(".ascii-field")?.getAttribute("aria-label")).toMatch(/Timpanogos/);
+    expect(container.querySelector(".ascii-field")?.getAttribute("aria-label")).toMatch(/Parthenon/);
     expect(container.querySelector("video")).toBeNull();
-    expect(screen.getByRole("link", { name: "Mount Timpanogos from Provo" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Parthenon, east side" })).toHaveAttribute(
       "href",
-      "https://commons.wikimedia.org/wiki/File:Mount_Timpanogos_-_01-07-08.jpg",
+      "https://commons.wikimedia.org/wiki/File:Parthenon_east_side_Acropolis_Athens,_Greece.jpg",
     );
   });
 

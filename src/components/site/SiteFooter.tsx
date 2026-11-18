@@ -31,11 +31,11 @@ const SiteFooter = () => (
       </p>
       <p className="footer-credit">
         Hero photo:{" "}
-        <a href="https://commons.wikimedia.org/wiki/File:Mount_Timpanogos_-_01-07-08.jpg">
-          Mount Timpanogos from Provo
+        <a href="https://commons.wikimedia.org/wiki/File:Parthenon_east_side_Acropolis_Athens,_Greece.jpg">
+          Parthenon, east side
         </a>{" "}
-        by a4gpa,{" "}
-        <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>
+        by Jebulon,{" "}
+        <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>
         . Adapted as ASCII.
       </p>
     </div>

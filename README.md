@@ -28,7 +28,7 @@ Open the local address Vite prints.
 
 ## Hero photograph
 
-The ASCII hero dithers [Mount Timpanogos from Provo](https://commons.wikimedia.org/wiki/File:Mount_Timpanogos_-_01-07-08.jpg) by [a4gpa](https://www.flickr.com/people/94833286@N00), licensed [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/). The file in `public/hero-ascii-source.jpg` is a 1920px Wikimedia thumbnail of that original, then sampled and Bayer-dithered in the canvas.
+The ASCII hero dithers [Parthenon, east side, Acropolis of Athens](https://commons.wikimedia.org/wiki/File:Parthenon_east_side_Acropolis_Athens,_Greece.jpg) by [Jebulon](https://commons.wikimedia.org/wiki/User:Jebulon), released as [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/). Credit is optional under CC0; the site still names the photographer. `public/hero-ascii-source.jpg` is a cropped, contrast-boosted 1920px version of that original, then sampled and Bayer-dithered in the canvas.
 
 ```bash
 npm test
